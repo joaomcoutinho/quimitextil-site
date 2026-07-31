@@ -9,4 +9,7 @@ export default defineConfig({
     
   ],
   base: "/quimitextil-site/",
+  server: {
+    port: process.env.PORT ? Number(process.env.PORT) : undefined,
+  },
 })

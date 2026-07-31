@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { empresa, whatsappLink } from "../data/empresa";
 import { segmentos } from "../data/segmentos";
+import SegmentIcon from "../components/SegmentIcon";
 import banner2 from "../assets/banner2.jpg";
 
 import tratamentoAguaImg from "../assets/tratamento2.avif";
@@ -13,7 +14,7 @@ import cosmeticosImg from "../assets/farmaceuticos2.jpg";
 import curtumeImg from "../assets/curtume2.jpg";
 import agropecuarioImg from "../assets/agropecuario2.avif";
 
-import frotaImg from "../assets/frota.jpeg";
+import frotaImg from "../assets/caminhao_qualidade.jpg";
 
 const segmentImages: Record<string, string> = {
   "tratamento-de-agua": tratamentoAguaImg,
@@ -245,135 +246,6 @@ function WhySection() {
   );
 }
 
-const segmentIcons: Record<string, React.ReactNode> = {
-  "tratamento-de-agua": (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={1.75}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="w-7 h-7"
-      aria-hidden="true"
-    >
-      <path d="M12 2C6.5 2 2 8.5 2 13a10 10 0 0 0 20 0c0-4.5-4.5-11-10-11z" />
-      <path d="M12 18v-6" />
-      <path d="M9 15l3 3 3-3" />
-    </svg>
-  ),
-  textil: (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={1.75}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="w-7 h-7"
-      aria-hidden="true"
-    >
-      <circle cx="12" cy="12" r="3" />
-      <path d="M3 12h4M17 12h4M12 3v4M12 17v4" />
-      <path d="M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8" />
-    </svg>
-  ),
-  alimenticio: (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={1.75}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="w-7 h-7"
-      aria-hidden="true"
-    >
-      <path d="M12 2a9 9 0 0 0-9 9v2a9 9 0 0 0 18 0v-2a9 9 0 0 0-9-9z" />
-      <path d="M8 13s.5 2 4 2 4-2 4-2" />
-      <path d="M9 9h.01M15 9h.01" />
-    </svg>
-  ),
-  saneantes: (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={1.75}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="w-7 h-7"
-      aria-hidden="true"
-    >
-      <path d="M9 3h6l1 4H8L9 3z" />
-      <path d="M8 7v13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V7" />
-      <path d="M10 11h4M10 15h4" />
-    </svg>
-  ),
-  "papel-celulose": (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={1.75}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="w-7 h-7"
-      aria-hidden="true"
-    >
-      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-      <polyline points="14 2 14 8 20 8" />
-      <line x1="9" y1="13" x2="15" y2="13" />
-      <line x1="9" y1="17" x2="15" y2="17" />
-    </svg>
-  ),
-  "cosmeticos-farmaceutico": (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={1.75}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="w-7 h-7"
-      aria-hidden="true"
-    >
-      <path d="M9 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-3" />
-      <rect x="9" y="1" width="6" height="4" rx="1" />
-      <path d="M12 11v6M9 14h6" />
-    </svg>
-  ),
-  curtume: (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={1.75}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="w-7 h-7"
-      aria-hidden="true"
-    >
-      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-    </svg>
-  ),
-  agropecuario: (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={1.75}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="w-7 h-7"
-      aria-hidden="true"
-    >
-      <path d="M12 22V12" />
-      <path d="M12 12C12 12 7 10 7 5a5 5 0 0 1 10 0c0 5-5 7-5 7z" />
-      <path d="M12 12C12 12 17 14 19 19" />
-    </svg>
-  ),
-};
 
 
 
@@ -522,14 +394,15 @@ function SegmentosSection() {
 
                   {/* small icon */}
                   <div
-                    className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
-                    style={{
-                      background: isActive ? "#2F3B92" : "rgba(47,59,146,0.07)",
-                      color: isActive ? "white" : "#df5342",
-                      transition: "background 0.2s, color 0.2s",
-                    }}
+                    className={[
+                      "w-11 h-11 rounded-xl border flex items-center justify-center flex-shrink-0",
+                      "transition-all duration-200 ease-out",
+                      isActive
+                        ? "bg-gradient-to-br from-[#3a49b4] to-[#2F3B92] border-transparent text-white shadow-[0_6px_14px_-5px_rgba(47,59,146,0.6)]"
+                        : "bg-white border-[#e8ecf7] text-[#df5342] shadow-[0_1px_2px_rgba(19,27,74,0.05)] group-hover:bg-[#fff3f0] group-hover:border-[#f6d2cb] group-hover:scale-[1.05]",
+                    ].join(" ")}
                   >
-                    {segmentIcons[seg.slug]}
+                    <SegmentIcon slug={seg.slug} className="w-[22px] h-[22px]" />
                   </div>
 
                   {/* text */}

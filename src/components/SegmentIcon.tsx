@@ -3,92 +3,137 @@ interface Props {
   className?: string
 }
 
+/**
+ * Ícones setoriais em estilo duotone: a silhueta principal recebe um
+ * preenchimento suave em currentColor e o traço por cima, os detalhes
+ * ficam só em traço. Funciona tanto em tile claro (ícone colorido)
+ * quanto em tile escuro (ícone branco), sem precisar de segunda cor.
+ */
 export default function SegmentIcon({ slug, className = 'w-6 h-6' }: Props) {
   const p = {
     viewBox: '0 0 24 24',
     fill: 'none',
     stroke: 'currentColor',
-    strokeWidth: 1.5,
+    strokeWidth: 1.6,
     strokeLinecap: 'round' as const,
     strokeLinejoin: 'round' as const,
     className,
     'aria-hidden': true as const,
   }
 
+  // preenchimento suave da silhueta
+  const solid = { fill: 'currentColor', fillOpacity: 0.16 }
+
   switch (slug) {
+    // gota d'água com ondas — tratamento e clarificação
     case 'tratamento-de-agua':
       return (
         <svg {...p}>
-          <path d="M12 3c-1 1.5-7 9.5-7 13a7 7 0 0014 0c0-3.5-6-11.5-7-13z" />
-          <path d="M9.5 18.5a3.5 3.5 0 005 0" />
+          <path
+            d="M12 3.6c3.8 4 6.7 7.2 6.7 10.4a6.7 6.7 0 1 1-13.4 0C5.3 10.8 8.2 7.6 12 3.6Z"
+            {...solid}
+          />
+          <path d="M8.7 14.3c1.1-1.05 2.15-1.05 3.25 0s2.15 1.05 3.25 0" />
+          <path d="M9.4 17.7c.87-.83 1.7-.83 2.57 0s1.7.83 2.57 0" />
         </svg>
       )
 
+    // carretel de linha — tinturaria, lavanderia e acabamento
     case 'textil':
       return (
         <svg {...p}>
-          <circle cx="6" cy="6" r="2.5" />
-          <circle cx="6" cy="18" r="2.5" />
-          <path d="M20 4L8.5 15.5" />
-          <path d="M14.5 14.5L20 20" />
-          <path d="M8.5 8.5L12 12" />
+          <rect x="4.4" y="2.9" width="15.2" height="3.1" rx="1.2" {...solid} />
+          <rect x="4.4" y="18" width="15.2" height="3.1" rx="1.2" {...solid} />
+          <path d="M7.7 6v12M16.3 6v12" />
+          <path d="M7.7 9.6l8.6-1.4M7.7 13.1l8.6-1.4M7.7 16.6l8.6-1.4" />
         </svg>
       )
 
+    // espiga de trigo — grau alimentício, panificação e ingredientes
     case 'alimenticio':
       return (
         <svg {...p}>
-          <path d="M12 22V12" />
-          <path d="M12 12c0 0-4-3-4-7a4 4 0 018 0c0 4-4 7-4 7z" />
-          <path d="M12 16c-3-1-5-3-5-3s2 1 5 3z" />
-          <path d="M12 16c3-1 5-3 5-3s-2 1-5 3z" />
-          <path d="M12 19c-3-1-5-2-5-2s2 1 5 2z" />
-          <path d="M12 19c3-1 5-2 5-2s-2 1-5 2z" />
+          <path d="M12 21.8V7.4" />
+          <path d="M12 12.6c0-2.8 1.6-5 3.6-5 0 2.8-1.6 5-3.6 5Z" {...solid} />
+          <path d="M12 12.6c0-2.8-1.6-5-3.6-5 0 2.8 1.6 5 3.6 5Z" {...solid} />
+          <path d="M12 18.6c0-2.8 1.6-5 3.6-5 0 2.8-1.6 5-3.6 5Z" {...solid} />
+          <path d="M12 18.6c0-2.8-1.6-5-3.6-5 0 2.8 1.6 5 3.6 5Z" {...solid} />
         </svg>
       )
 
+    // frasco com brilho — saneantes e limpeza profissional
     case 'saneantes':
       return (
         <svg {...p}>
-          <path d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
-          <path d="M18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z" />
-          <path d="M16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
+          <rect x="9.5" y="2.6" width="5" height="2.8" rx=".9" {...solid} />
+          <path
+            d="M10.4 5.4v1.5c0 .7-.35 1.3-.9 1.75A3.6 3.6 0 0 0 8 11.5v7.7a2.2 2.2 0 0 0 2.2 2.2h3.6a2.2 2.2 0 0 0 2.2-2.2v-7.7a3.6 3.6 0 0 0-1.5-2.85c-.55-.45-.9-1.05-.9-1.75V5.4"
+            {...solid}
+          />
+          <path d="M8 13.2h8M8 16.4h8" />
+          <path
+            d="M19.3 3.2l.85 2.35 2.35.85-2.35.85-.85 2.35-.85-2.35-2.35-.85 2.35-.85z"
+            fill="currentColor"
+            stroke="none"
+          />
         </svg>
       )
 
+    // bobina de papel — celulose e processo
     case 'papel-celulose':
       return (
         <svg {...p}>
-          <path d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+          <path d="M7 6.6v10.8a5 2.7 0 0 0 10 0V6.6" {...solid} />
+          <ellipse cx="12" cy="6.6" rx="5" ry="2.7" {...solid} />
+          <ellipse cx="12" cy="6.6" rx="1.5" ry=".8" />
         </svg>
       )
 
+    // cápsula — insumos USP, cosméticos e farmacêutico
     case 'cosmeticos-farmaceutico':
       return (
         <svg {...p}>
-          <path d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
+          <path
+            d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"
+            {...solid}
+          />
+          <path d="m8.5 8.5 7 7" />
         </svg>
       )
 
+    // pele/couro estendido — curtume
     case 'curtume':
       return (
         <svg {...p}>
-          <path d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.658.33a18.095 18.095 0 005.223-5.223c.542-.878.369-1.958-.33-2.658L11.23 3.659A2.25 2.25 0 009.568 3z" />
-          <circle cx="6.75" cy="6.75" r="0.75" fill="currentColor" stroke="none" />
+          <path
+            d="M11.2 3.2h1.6c.95 0 1.65.7 1.85 1.6.25 1.15 1.2 1.95 2.4 2l2.35.1c1.5.05 2.15 1.85 1.05 2.85l-1.4 1.3c-.85.8-1.05 2.05-.5 3.05l1.25 2.3c.75 1.35-.35 2.9-1.85 2.65l-2.35-.4c-1.1-.2-2.2.35-2.7 1.35l-.35.7c-.35.7-1.35.7-1.7 0l-.35-.7c-.5-1-1.6-1.55-2.7-1.35l-2.35.4c-1.5.25-2.6-1.3-1.85-2.65l1.25-2.3c.55-1 .35-2.25-.5-3.05l-1.4-1.3c-1.1-1-.45-2.8 1.05-2.85l2.35-.1c1.2-.05 2.15-.85 2.4-2 .2-.9.9-1.6 2.45-1.6Z"
+            {...solid}
+          />
         </svg>
       )
 
+    // trator — agricultura, pecuária e nutrientes
     case 'agropecuario':
       return (
         <svg {...p}>
-          <path d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+          <circle cx="7.2" cy="16.4" r="4.4" {...solid} />
+          <circle cx="7.2" cy="16.4" r="1.5" />
+          <circle cx="18.4" cy="18.4" r="2.6" {...solid} />
+          <path d="M11.6 16.6V8.8h3.6v3.4h4.4a1.4 1.4 0 0 1 1.4 1.4v3.4" />
+          <path d="M11.6 16.6h4.3" />
         </svg>
       )
 
+    // frasco de laboratório — fallback
     default:
       return (
         <svg {...p}>
-          <path d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
+          <path
+            d="M9.8 3.2v5.4a2.4 2.4 0 0 1-.35 1.25L4.9 17.3A2.4 2.4 0 0 0 6.95 21h10.1a2.4 2.4 0 0 0 2.05-3.7l-4.55-7.45a2.4 2.4 0 0 1-.35-1.25V3.2"
+            {...solid}
+          />
+          <path d="M8.6 3.2h6.8" />
+          <path d="M7.6 14.6h8.8" />
         </svg>
       )
   }
