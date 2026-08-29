@@ -17,7 +17,10 @@ export default function Layout() {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      <main className="flex-1 overflow-x-hidden">
+      {/* overflow-x-clip, não hidden: hidden criaria contêiner de rolagem e
+          quebraria os elementos sticky das páginas (filtros do catálogo e
+          título do FAQ), além do header. */}
+      <main className="flex-1 overflow-x-clip">
         <Outlet />
       </main>
       <Footer />
