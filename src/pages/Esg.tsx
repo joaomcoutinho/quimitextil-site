@@ -24,11 +24,11 @@ const pilares: Pilar[] = [
     cor: '#059669',
     bg: 'rgba(5,150,105,0.09)',
     itens: [
-      'Descarte e destinação correta de resíduos e embalagens',
-      'Logística planejada para reduzir emissões no transporte',
-      'Prevenção de vazamentos e contaminação no manuseio',
+      'PGRS, Plano de Gerenciamento de Resíduos Sólidos documentado',
+      'Destinação de resíduos por empresas licenciadas, com manifesto',
+      'Licença de Operação da CPRH e regularidade no IBAMA',
+      'Bacia de contenção e prevenção de vazamentos no armazenamento',
       'Uso consciente de água e energia na operação',
-      'Preferência por soluções de menor impacto ambiental',
     ],
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6" aria-hidden="true">
@@ -44,8 +44,8 @@ const pilares: Pilar[] = [
     cor: '#2F3B92',
     bg: 'rgba(47,59,146,0.09)',
     itens: [
-      'Segurança e saúde de quem manuseia produto perigoso',
-      'Motoristas treinados e certificados (MOPP)',
+      'PGR e PCMSO para saúde e segurança do trabalho',
+      'Quatro motoristas certificados em MOPP',
       'Treinamento contínuo e uso de EPIs',
       'Respeito à comunidade de Vitória de Santo Antão',
       'Atendimento próximo, direto e sem intermediário',
@@ -64,9 +64,9 @@ const pilares: Pilar[] = [
     cor: '#df5342',
     bg: 'rgba(223,83,66,0.09)',
     itens: [
-      'Conformidade legal, fiscal e ambiental',
-      'Rastreabilidade e documentação técnica (FISPQ)',
-      'Ética e transparência em cada negociação',
+      'Código de conduta e política de governança documentados',
+      'Licenças CPRH, IBAMA e Polícia Federal em dia',
+      'Controle de produtos químicos sujeitos à fiscalização federal',
       'Gestão criteriosa de fornecedores e parceiros',
       'Compromisso firmado: palavra dada, palavra cumprida',
     ],
@@ -81,14 +81,34 @@ const pilares: Pilar[] = [
 // ─── Referências que orientam a operação ───────────────────────────────────
 const referencias = [
   {
-    nome: 'Atuação Responsável®',
-    fonte: 'Abiquim',
-    desc: 'Programa da indústria química brasileira que reúne saúde, segurança, meio ambiente e governança, a base do ESG no setor. Orientamos nossas práticas por seus princípios.',
+    nome: 'Licença de Operação CPRH',
+    fonte: 'Válida até 02/08/2031',
+    desc: 'Licença de Operação nº 03.26.07.005985-5, emitida pela Agência Estadual de Meio Ambiente de Pernambuco, para armazenamento e distribuição de produtos químicos. Inclui exigências de contenção, destinação de resíduos e plano de atendimento a emergências.',
   },
   {
-    nome: 'Boas práticas de logística',
-    fonte: 'Transporte químico',
-    desc: 'Seguimos as normas de saúde, segurança, meio ambiente e qualidade aplicáveis ao transporte de produtos químicos, referência que guia a operação da nossa frota própria.',
+    nome: 'Certificado de Regularidade IBAMA',
+    fonte: 'CTF/APP · até 09/10/2026',
+    desc: 'Registro nº 54123 no Cadastro Técnico Federal de Atividades Potencialmente Poluidoras, nas categorias de transporte de cargas perigosas e comércio de produtos químicos.',
+  },
+  {
+    nome: 'Licença de Funcionamento da Polícia Federal',
+    fonte: 'CLF · até 03/08/2027',
+    desc: 'Certificado nº 2020-00558066 (CRC 2003000621), que autoriza a comercialização e o transporte de produtos químicos controlados, nos termos da Lei 10.357/2001.',
+  },
+  {
+    nome: 'Programas de segurança do trabalho',
+    fonte: 'PGR · PCMSO · MOPP',
+    desc: 'Mantemos Programa de Gerenciamento de Riscos e Programa de Controle Médico de Saúde Ocupacional, além de quatro motoristas certificados em MOPP para o transporte de produtos perigosos.',
+  },
+  {
+    nome: 'PGRS',
+    fonte: 'Gerenciamento de resíduos',
+    desc: 'Plano de Gerenciamento de Resíduos Sólidos documentado, que define a segregação, o armazenamento e a destinação final de cada classe de resíduo gerado na operação, sempre por empresas licenciadas.',
+  },
+  {
+    nome: 'Código de conduta',
+    fonte: 'Governança',
+    desc: 'Código de conduta e política de governança documentados, que orientam a relação com clientes, fornecedores e equipe, e formalizam os princípios éticos que a empresa pratica desde a fundação.',
   },
   {
     nome: 'FISPQ',
@@ -96,9 +116,9 @@ const referencias = [
     desc: 'Disponibilizamos a Ficha de Informações de Segurança de Produtos Químicos, garantindo manuseio, armazenamento e descarte corretos por parte de quem recebe.',
   },
   {
-    nome: 'Conformidade documentada',
-    fonte: 'Licença Ambiental · ANTT · MOPP',
-    desc: 'Nossa operação de distribuição e transporte é conduzida sob as licenças e autorizações exigidas pela legislação ambiental e de transporte.',
+    nome: 'Destinação de resíduos',
+    fonte: 'Exigência da Licença de Operação',
+    desc: 'Resíduos classe 1, embalagens contaminadas e materiais absorventes são destinados por empresas licenciadas ambientalmente, com manifesto de transporte e certificado de destinação mantidos atualizados.',
   },
 ]
 
@@ -158,9 +178,6 @@ export default function Esg() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
           <div className="max-w-3xl">
-            <div className="ds-eyebrow" style={{ marginBottom: '1.75rem' }}>
-              Compromisso ESG · Química responsável
-            </div>
             <h1
               className="text-white font-display font-bold"
               style={{
@@ -168,6 +185,7 @@ export default function Esg() {
                 fontSize: 'clamp(2.25rem, 5.5vw, 4rem)',
                 lineHeight: 0.98,
                 letterSpacing: '-0.01em',
+                marginTop: '1.5rem',
                 marginBottom: '1.75rem',
               }}
             >
@@ -318,17 +336,18 @@ export default function Esg() {
       <section className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="ds-row-label">
-            <span className="ds-label">Referências que nos orientam</span>
+            <span className="ds-label">Licenças e programas vigentes</span>
           </div>
           <h2
             className="font-display font-bold text-[#131b4a] text-3xl"
             style={{ fontFamily: "'Oswald', sans-serif", marginBottom: '1rem' }}
           >
-            Alinhados ao que há de mais sério no setor químico.
+            Conformidade que se comprova em documento.
           </h2>
           <p className="text-slate-500 font-body max-w-2xl" style={{ marginBottom: '2.5rem' }}>
-            Nossas práticas seguem as principais referências de saúde, segurança,
-            meio ambiente e governança da indústria química brasileira.
+            Não se trata de intenção declarada: cada compromisso abaixo
+            corresponde a uma licença, certificado ou programa vigente, com
+            número e validade que podem ser verificados.
           </p>
 
           <div className="grid md:grid-cols-2 gap-px bg-slate-200">

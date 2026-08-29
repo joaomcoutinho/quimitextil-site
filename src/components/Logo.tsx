@@ -18,15 +18,11 @@ export default function Logo({ variant = 'dark', showAnos = false }: LogoProps) 
     <Link to="/" className="flex items-center gap-3 no-underline group">
       {/* 2. Substituímos o desenho manual pela tag img */}
       <div className="flex-shrink-0">
-        <img 
-          src={logoPng} 
-          alt={empresa.nome} 
-          className="h-10 w-auto" // Ajuste a altura (h-10) conforme necessário
-          style={{ 
-            // Se a logo precisar mudar de cor (ex: ficar toda branca no light), 
-            // imagens PNG são limitadas, mas a senhora pode usar brilho se necessário:
-            filter: isLight ? 'brightness(0) invert(1)' : 'none' 
-          }}
+        <img
+          src={logoPng}
+          alt={empresa.nome}
+          className="h-10 w-auto"
+          style={{ filter: isLight ? 'brightness(0) invert(1)' : 'none' }}
         />
       </div>
 
@@ -42,7 +38,6 @@ export default function Logo({ variant = 'dark', showAnos = false }: LogoProps) 
             <span className={`text-[0.6rem] font-bold uppercase tracking-widest font-label ${taglineColor}`}>
               {empresa.anosHistoria} anos
             </span>
-            <span className="w-1 h-1 rounded-full bg-brand-orange inline-block" />
           </span>
         ) : (
           <span

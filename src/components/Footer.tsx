@@ -27,6 +27,9 @@ export default function Footer() {
             <p className="text-white/60 text-sm font-body leading-relaxed">
               A química que abastece a indústria do Nordeste há 50 anos.
             </p>
+            <p className="text-white/40 text-sm font-body italic">
+              {empresa.slogan}
+            </p>
             <a
               href={empresa.instagramUrl}
               target="_blank"
@@ -56,9 +59,9 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-[0.65rem] font-label font-bold uppercase tracking-widest text-white/40 mb-4">Setores atendidos</h4>
+            <h4 className="text-[0.65rem] font-label font-bold uppercase tracking-widest text-white/40 mb-4">Segmentos</h4>
             <nav className="flex flex-col gap-2">
-              {segmentos.slice(0, 6).map(seg => (
+              {segmentos.map(seg => (
                 <Link
                   key={seg.slug}
                   to={`/segmentos/${seg.slug}`}
@@ -105,8 +108,21 @@ export default function Footer() {
                 </a>
               </div>
               <div>
+                <p className="text-[0.6rem] font-label font-bold uppercase tracking-widest text-white/30 mb-1">E-mail</p>
+                <a
+                  href={`mailto:${empresa.email}`}
+                  className="text-white hover:text-brand-orange transition-colors text-sm font-body font-medium break-words"
+                >
+                  {empresa.email}
+                </a>
+              </div>
+              <div>
                 <p className="text-[0.6rem] font-label font-bold uppercase tracking-widest text-white/30 mb-1">Endereço</p>
-                <p className="text-white/60 text-sm font-body">{empresa.endereco}</p>
+                <p className="text-white/60 text-sm font-body leading-relaxed">{empresa.enderecoCompleto}</p>
+              </div>
+              <div>
+                <p className="text-[0.6rem] font-label font-bold uppercase tracking-widest text-white/30 mb-1">Atendimento</p>
+                <p className="text-white/60 text-sm font-body">{empresa.horarioAtendimento}</p>
               </div>
             </div>
           </div>

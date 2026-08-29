@@ -29,9 +29,9 @@ const segmentImages: Record<string, string> = {
 
 const stats = [
   { num: "50 anos", label: "de operação contínua" },
-  { num: "33+", label: "insumos no catálogo ativo" },
-  { num: "9 estados", label: "atendidos no Nordeste" },
-  { num: "100%", label: "frota própria, sem terceirização" },
+  { num: "56", label: "insumos no catálogo ativo" },
+  { num: "6 estados", label: "atendidos no Nordeste" },
+  { num: "72h", label: "prazo máximo de entrega" },
 ];
 
 const whyCards = [
@@ -42,18 +42,18 @@ const whyCards = [
   },
   {
     n: "02",
-    title: "Frota inteiramente própria",
-    text: "Caminhão nosso, motorista nosso, expedição nossa. Sem subcontratação no caminho, porque químico não admite improviso.",
+    title: "Frota própria com motoristas certificados",
+    text: "Caminhões-tanque, carrocerias e carreta próprios, conduzidos por motoristas certificados em MOPP. Parceiros homologados complementam a malha quando o volume exige.",
   },
   {
     n: "03",
-    title: "Sem camada de revendedor",
+    title: "Atendimento direto, sem intermediário",
     text: "Você fala diretamente com nosso comercial. Cotação, dúvida técnica, ajuste de pedido, pelo mesmo canal, com a mesma pessoa.",
   },
   {
     n: "04",
     title: "Catálogo amplo e segmentado",
-    text: "33 insumos cobrindo desde tratamento de água até cosméticos farmacêuticos. Encontre o seu pelo nome, pela fórmula ou pelo segmento.",
+    text: "56 insumos cobrindo desde tratamento de água até cosméticos farmacêuticos, e distribuição de marcas como Esseco, Lonza, Saporiti e Peroxy Bahia.",
   },
 ];
 
@@ -70,16 +70,45 @@ const steps = [
   },
   {
     n: 3,
-    title: "Entregamos com nossa frota",
-    text: "Saída do nosso CD em Vitória de Santo Antão / PE, com motoristas treinados em transporte de produtos perigosos. Em qualquer estado do Nordeste.",
+    title: "Entregamos no prazo combinado",
+    text: "Saída do nosso CD em Vitória de Santo Antão / PE, com motoristas certificados em MOPP. Entrega em até 72 horas nos seis estados atendidos.",
   },
 ];
 
 const logisticaItems = [
-  "Frota equipada para químicos",
-  "Motoristas certificados em MOPP",
-  "Cobertura nos 9 estados",
-  "Saída de PE para o Nordeste todo",
+  {
+    label: "9 veículos próprios: 2 tanques, 4 carrocerias, 2 utilitários e 1 carreta",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zm10 0a2 2 0 11-4 0 2 2 0 014 0z" />
+        <path d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10l1.5.5M13 16l1.5.5M13 16H3m10 0h4.586a1 1 0 00.707-.293l2.414-2.414A1 1 0 0021 12.586V11a2 2 0 00-2-2h-2m-4-3H9M7 16h.01" />
+      </svg>
+    ),
+  },
+  {
+    label: "4 motoristas com certificação MOPP documentada",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+      </svg>
+    ),
+  },
+  {
+    label: "Parceiros homologados para maiores volumes",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+      </svg>
+    ),
+  },
+  {
+    label: "Entrega em até 72 horas nos 6 estados atendidos",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M12 8v4l3 2m6-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    ),
+  },
 ];
 
 const faqs = [
@@ -89,11 +118,11 @@ const faqs = [
   },
   {
     q: "Vocês entregam fora de Pernambuco?",
-    a: "Sim. Atendemos os 9 estados do Nordeste com frota própria, sempre.",
+    a: "Sim. Além de Pernambuco, atendemos Alagoas, Sergipe, Paraíba, Rio Grande do Norte e Ceará. A cobertura varia dentro de cada estado, então confirme sua cidade pelo WhatsApp.",
   },
   {
     q: "Atendem pessoa física?",
-    a: "Não. Trabalhamos com vendas no atacado para empresas, modelo B2B. Esse foco é o que nos permite entregar a especialização que indústria precisa.",
+    a: "Nosso foco é a venda no atacado para empresas, modelo B2B, que é o que nos permite entregar a especialização que a indústria precisa. Casos específicos podem ser avaliados pelo comercial.",
   },
   {
     q: "Posso receber a FISPQ antes de comprar?",
@@ -101,9 +130,72 @@ const faqs = [
   },
   {
     q: "Quais segmentos vocês atendem?",
-    a: "Tratamento de água, têxtil, alimentício, saneantes, papel e celulose, cosméticos e farmacêutico, curtume e agropecuário.",
+    a: `O catálogo é organizado em 8 segmentos: ${segmentos.map((s) => s.nome).join(", ")}. Na prática, a carteira alcança 16 setores industriais, de galvanização a carcinicultura.`,
   },
 ];
+
+function HomeFaqItem({ q, a, n }: { q: string; a: string; n: number }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div
+      className="bg-white overflow-hidden"
+      style={{
+        border: "1px solid rgba(47,59,146,0.08)",
+        borderRadius: "4px",
+        display: "grid",
+        gridTemplateRows: `auto ${open ? "1fr" : "0fr"}`,
+        transition: "grid-template-rows 0.4s cubic-bezier(0.4,0,0.2,1)",
+      }}
+    >
+      <button
+        type="button"
+        onClick={() => setOpen((o) => !o)}
+        aria-expanded={open}
+        className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer select-none w-full text-left bg-transparent border-0"
+      >
+        <div className="flex items-center gap-4">
+          <span
+            className="font-label font-bold text-[0.6rem] tracking-widest flex-shrink-0"
+            style={{ color: "rgba(47,59,146,0.3)" }}
+          >
+            {String(n).padStart(2, "0")}
+          </span>
+          <span
+            className="font-body font-semibold text-sm leading-snug"
+            style={{ color: open ? "#2F3B92" : "#131b4a", transition: "color 0.25s" }}
+          >
+            {q}
+          </span>
+        </div>
+        <svg
+          className="w-4 h-4 flex-shrink-0 text-brand-blue"
+          style={{
+            transition: "transform 0.4s cubic-bezier(0.4,0,0.2,1)",
+            transform: open ? "rotate(180deg)" : "rotate(0deg)",
+          }}
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={2}
+          aria-hidden="true"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+      <div style={{ overflow: "hidden", minHeight: 0 }}>
+        <div className="relative">
+          <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-brand-orange" aria-hidden="true" />
+          <p
+            className="font-body text-sm text-slate-500 leading-relaxed pl-8"
+            style={{ padding: "0.75rem 1.5rem 1.5rem 2rem" }}
+          >
+            {a}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function WhySection() {
   const gridRef = useRef<HTMLDivElement>(null);
@@ -269,7 +361,7 @@ function SegmentosSection() {
         {/* header */}
         <div className="mb-14">
           <div className="ds-row-label">
-            <span className="ds-label">Setores atendidos</span>
+            <span className="ds-label">Segmentos atendidos</span>
           </div>
           <h2
             className="text-[#131b4a] font-display font-bold"
@@ -468,23 +560,6 @@ function SegmentosSection() {
               aria-hidden="true"
             />
 
-            {/* placeholder badge */}
-            <div
-              className="absolute top-5 right-5 flex items-center gap-1.5 px-3 py-1 rounded-full"
-              style={{
-                background: "rgba(255,255,255,0.1)",
-                border: "1px solid rgba(255,255,255,0.15)",
-              }}
-            >
-              <div
-                className="w-1.5 h-1.5 rounded-full bg-brand-orange animate-pulse"
-                aria-hidden="true"
-              />
-              <span className="font-label text-white/60 text-[0.6rem] uppercase tracking-widest">
-                Placeholder
-              </span>
-            </div>
-
             {/* bottom info bar */}
             <div
               className="relative z-10 p-8"
@@ -497,7 +572,7 @@ function SegmentosSection() {
               }}
             >
               <p className="font-label text-white/50 text-[0.65rem] uppercase tracking-widest mb-2">
-                Setor ·{" "}
+                Segmento ·{" "}
                 {String(
                   segmentos.findIndex((s) => s.slug === active.slug) + 1,
                 ).padStart(2, "0")}{" "}
@@ -580,15 +655,13 @@ export default function Home() {
 
         <div className="max-w-7xl mx-auto px-6 py-20 w-full relative z-10">
           <div className="max-w-3xl">
-            <div className="ds-eyebrow" style={{ marginBottom: "1.75rem" }}>
-              50 anos de história · Autoridade em todo o Nordeste
-            </div>
             <h1
               className="text-white font-display font-bold leading-[0.95]"
               style={{
                 fontSize: "clamp(2.5rem, 6vw, 4.5rem)",
                 fontFamily: "'Oswald', sans-serif",
                 letterSpacing: "-0.01em",
+                marginTop: "1.5rem",
                 marginBottom: "2rem",
               }}
             >
@@ -604,14 +677,12 @@ export default function Home() {
               className="text-white/70 text-lg font-body leading-relaxed max-w-2xl"
               style={{ marginBottom: "3rem" }}
             >
-              Distribuição direta de{" "}
+              Distribuição, importação e revenda de{" "}
+              <strong className="text-white">56 insumos químicos</strong> para 8
+              segmentos industriais, com{" "}
+              <strong className="text-white">logística própria</strong>,{" "}
               <strong className="text-white">
-                mais de 30 insumos químicos
-              </strong>{" "}
-              para 8 setores industriais, com{" "}
-              <strong className="text-white">frota própria</strong>,{" "}
-              <strong className="text-white">
-                atendimento sem intermediário
+                entrega em até 72 horas
               </strong>{" "}
               e a autoridade de quem lidera o setor há 50 anos.
             </p>
@@ -919,7 +990,7 @@ export default function Home() {
             <div className="flex items-center gap-2 mb-6">
               <span className="w-6 h-px bg-brand-orange" aria-hidden="true" />
               <span className="font-label text-xs tracking-widest uppercase text-brand-orange">
-                Logística própria
+                Estrutura logística
               </span>
             </div>
 
@@ -930,32 +1001,33 @@ export default function Home() {
                 fontFamily: "'Oswald', sans-serif",
               }}
             >
-              Frota nossa.
+              Frota própria.
               <br />
-              Motorista nosso.
+              Motorista certificado.
               <br />
               <span className="text-brand-orange">Risco menor.</span>
             </h2>
 
             <p className="text-white/60 font-body text-base leading-relaxed mb-8 max-w-md">
-              Em distribuição química industrial, terceirização é onde o prazo
-              se perde. Por isso operamos com estrutura logística 100% própria,
-              da expedição à porta do seu galpão.
+              Em distribuição química industrial, o prazo se perde quando
+              ninguém responde pela carga. Operamos com frota própria e
+              motoristas com certificação MOPP documentada, e contamos com
+              transportadores parceiros homologados nas demandas de maior
+              volume.
             </p>
 
-            {/* feature pills */}
-            <div className="grid grid-cols-2 gap-3 mb-10">
+            {/* feature list */}
+            <div className="flex flex-col mb-10 border-t border-white/10">
               {logisticaItems.map((item) => (
                 <div
-                  key={item}
-                  className="flex items-start gap-2.5 bg-white/5 border border-white/10 rounded px-3 py-2.5 hover:border-brand-orange/40 transition-colors"
+                  key={item.label}
+                  className="flex items-center gap-4 py-3.5 border-b border-white/10"
                 >
-                  <span
-                    className="mt-1 w-1.5 h-1.5 rounded-full bg-brand-orange flex-shrink-0"
-                    aria-hidden="true"
-                  />
-                  <p className="text-white/80 font-body text-sm leading-snug">
-                    {item}
+                  <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 text-brand-orange" style={{ background: "rgba(223,83,66,0.1)" }}>
+                    {item.icon && <span className="w-[18px] h-[18px] block [&_svg]:w-full [&_svg]:h-full">{item.icon}</span>}
+                  </div>
+                  <p className="text-white/85 font-body text-sm font-medium leading-snug">
+                    {item.label}
                   </p>
                 </div>
               ))}
@@ -975,7 +1047,7 @@ export default function Home() {
           <div className="flex items-center gap-2 mb-6">
             <span className="w-6 h-px bg-brand-orange" aria-hidden="true" />
             <span className="font-label text-xs tracking-widest uppercase text-brand-orange">
-              Logística própria
+              Estrutura logística
             </span>
           </div>
 
@@ -986,9 +1058,9 @@ export default function Home() {
               fontFamily: "'Oswald', sans-serif",
             }}
           >
-            Frota nossa.
+            Frota própria.
             <br />
-            Motorista nosso.
+            Motorista certificado.
             <br />
             <span className="text-brand-orange">Risco menor.</span>
           </h2>
@@ -1009,23 +1081,23 @@ export default function Home() {
           </div>
 
           <p className="text-white/60 font-body text-base leading-relaxed mb-8">
-            Em distribuição química industrial, terceirização é onde o prazo se
-            perde. Por isso operamos com estrutura logística 100% própria, da
-            expedição à porta do seu galpão.
+            Em distribuição química industrial, o prazo se perde quando ninguém
+            responde pela carga. Operamos com frota própria e motoristas com
+            certificação MOPP documentada, e contamos com transportadores
+            parceiros homologados nas demandas de maior volume.
           </p>
 
-          {/* feature pills, single column on mobile */}
-          <div className="flex flex-col gap-3 mb-10">
+          {/* feature list, single column on mobile */}
+          <div className="flex flex-col mb-10 border-t border-white/10">
             {logisticaItems.map((item) => (
               <div
-                key={item}
-                className="flex items-center gap-3 bg-white/5 border border-white/10 rounded px-4 py-3"
+                key={item.label}
+                className="flex items-center gap-4 py-3.5 border-b border-white/10"
               >
-                <span
-                  className="w-1.5 h-1.5 rounded-full bg-brand-orange flex-shrink-0"
-                  aria-hidden="true"
-                />
-                <p className="text-white/80 font-body text-sm">{item}</p>
+                <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 text-brand-orange" style={{ background: "rgba(223,83,66,0.1)" }}>
+                  {item.icon && <span className="w-[18px] h-[18px] block [&_svg]:w-full [&_svg]:h-full">{item.icon}</span>}
+                </div>
+                <p className="text-white/85 font-body text-sm font-medium">{item.label}</p>
               </div>
             ))}
           </div>
@@ -1095,62 +1167,7 @@ export default function Home() {
             {/* right: accordion */}
             <div className="flex flex-col gap-2">
               {faqs.map((faq, i) => (
-                <details
-                  key={faq.q}
-                  className="group/faq bg-white overflow-hidden"
-                  style={{
-                    border: "1px solid rgba(47,59,146,0.08)",
-                    borderRadius: "4px",
-                  }}
-                >
-                  <summary
-                    className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none select-none"
-                    style={{ WebkitUserSelect: "none" }}
-                  >
-                    <div className="flex items-center gap-4">
-                      <span
-                        className="font-label font-bold text-[0.6rem] tracking-widest flex-shrink-0"
-                        style={{ color: "rgba(47,59,146,0.3)" }}
-                      >
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <span
-                        className="font-body font-semibold text-[#131b4a] text-sm leading-snug group-open/faq:text-brand-blue"
-                        style={{ transition: "color 0.2s" }}
-                      >
-                        {faq.q}
-                      </span>
-                    </div>
-                    <svg
-                      className="w-4 h-4 flex-shrink-0 text-brand-blue group-open/faq:rotate-180"
-                      style={{ transition: "transform 0.25s" }}
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                      aria-hidden="true"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M19 9l-7 7-7-7"
-                      />
-                    </svg>
-                  </summary>
-                  {/* left accent bar on open */}
-                  <div className="relative">
-                    <div
-                      className="absolute left-0 top-0 bottom-0 w-[3px] bg-brand-orange"
-                      aria-hidden="true"
-                    />
-                    <p
-                      className="font-body text-sm text-slate-500 leading-relaxed pl-8"
-                      style={{ padding: "0.75rem 1.5rem 1.5rem 2rem" }}
-                    >
-                      {faq.a}
-                    </p>
-                  </div>
-                </details>
+                <HomeFaqItem key={faq.q} q={faq.q} a={faq.a} n={i + 1} />
               ))}
             </div>
           </div>

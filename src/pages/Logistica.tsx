@@ -1,4 +1,4 @@
-import { whatsappLink } from "../data/empresa";
+import { whatsappLink, cobertura, frota, licencas } from "../data/empresa";
 import PageHeroShell from "../components/PageHeroShell";
 import mapa from "../assets/mapa_quimitextil.webp";
 
@@ -7,45 +7,41 @@ import heroLogistica from "../assets/logistica.webp";
 const diferenciais = [
   {
     n: "01",
-    title: "Frota 100% própria",
-    text: "Caminhão nosso, motorista nosso. Sem subcontratação no caminho, sem perda de controle entre a expedição e o seu galpão.",
+    title: "Frota própria dimensionada",
+    text: "Dois caminhões-tanque, quatro carrocerias abertas, dois utilitários e uma carreta. Parceiros homologados complementam a malha quando o volume exige.",
   },
   {
     n: "02",
-    title: "Motoristas certificados em MOPP",
-    text: "Capacitação em Movimentação Operacional de Produto Perigoso, renovada periodicamente. Quem dirige sabe o que está transportando.",
+    title: "Quatro motoristas certificados em MOPP",
+    text: "Capacitação em Movimentação Operacional de Produtos Perigosos, renovada periodicamente. Quem dirige sabe o que está transportando.",
   },
   {
     n: "03",
     title: "Veículos preparados para químicos",
-    text: "Equipamentos conforme exigência da legislação para o transporte seguro de cada categoria de produto.",
+    text: "Equipados com todos os itens de segurança exigidos pela legislação e pelas normas técnicas aplicáveis ao transporte de cargas perigosas.",
   },
   {
     n: "04",
     title: "Localização estratégica",
-    text: "CD em Vitória de Santo Antão / PE, um dos pontos com melhor logística rodoviária do Nordeste.",
+    text: "CD em Vitória de Santo Antão / PE, no Distrito Industrial, um dos pontos com melhor logística rodoviária do Nordeste.",
   },
   {
     n: "05",
-    title: "Rastreabilidade do pedido",
-    text: "Você sabe onde o seu produto está, do faturamento à entrega.",
+    title: "Entrega em até 72 horas",
+    text: "Prazo máximo de entrega nos estados atendidos, contado a partir da confirmação do pedido.",
   },
   {
     n: "06",
-    title: "Cobertura completa do Nordeste",
-    text: "Pernambuco, Alagoas, Bahia, Ceará, Maranhão, Paraíba, Piauí, Rio Grande do Norte e Sergipe.",
+    title: "Frete acordado por pedido",
+    text: "A condição de frete é definida em conjunto no fechamento, de acordo com volume, destino e periodicidade da operação.",
   },
 ];
 
 export default function Logistica() {
   return (
     <div>
-      <PageHeroShell watermark="9" backgroundImage={heroLogistica}>
+      <PageHeroShell watermark="6" backgroundImage={heroLogistica}>
         <div className="max-w-7xl mx-auto px-6">
-          <div className="ds-eyebrow" style={{ marginBottom: "1.5rem" }}>
-            Estrutura logística
-          </div>
-
           <h1
             className="font-display font-bold text-white"
             style={{
@@ -54,13 +50,14 @@ export default function Logistica() {
               marginBottom: "1.25rem",
             }}
           >
-            Frota nossa. Risco menor. Prazo cumprido.
+            Frota própria. Risco menor. Prazo cumprido.
           </h1>
 
           <p className="text-white/70 font-body text-base max-w-2xl">
-            Em distribuição química industrial, terceirização vira loteria. Por
-            isso operamos com estrutura logística inteiramente própria, da
-            expedição à porta do seu galpão, em todo o Nordeste.
+            Em distribuição química industrial, o prazo se perde quando ninguém
+            responde pela carga. Por isso mantemos frota própria e motoristas
+            certificados em MOPP, com entrega em até 72 horas nos seis estados
+            que atendemos.
           </p>
         </div>
       </PageHeroShell>
@@ -85,8 +82,8 @@ export default function Logistica() {
             className="text-slate-500 font-body max-w-xl"
             style={{ marginBottom: "3.5rem" }}
           >
-            Estrutura 100% própria, do caminhão ao motorista. Cada detalhe
-            pensado para quem não pode perder prazo.
+            Seis pontos que definem como a carga sai daqui e chega até você.
+            Cada detalhe pensado para quem não pode perder prazo.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-slate-200">
@@ -318,119 +315,199 @@ export default function Logistica() {
       </section>
 
       {/* Cobertura */}
-      <section className="bg-[#F4F5F9] py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="ds-row-label">
-            <span className="ds-label">Cobertura regional</span>
+      <section className="relative overflow-hidden" style={{ background: "#0e1540", padding: "5rem 0" }}>
+        <div className="absolute inset-0 ds-grid-texture opacity-30" aria-hidden="true" />
+        <div className="absolute left-0 top-0 bottom-0 w-1 bg-brand-orange" aria-hidden="true" />
+        <div
+          className="absolute pointer-events-none"
+          style={{
+            top: "-10%",
+            right: "-5%",
+            width: "480px",
+            height: "480px",
+            background: "radial-gradient(circle, rgba(47,59,146,0.28) 0%, transparent 70%)",
+            borderRadius: "50%",
+          }}
+          aria-hidden="true"
+        />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6">
+          <div className="ds-eyebrow" style={{ marginBottom: "1.5rem" }}>
+            Cobertura regional
           </div>
-          <h2
-            className="font-display font-bold text-[#131b4a] text-3xl text-center"
-            style={{
-              fontFamily: "'Oswald', sans-serif",
-              marginBottom: "1.25rem",
-            }}
-          >
-            Nove estados, uma operação.
-          </h2>
-          <p
-            className="text-slate-500 font-body"
-            style={{
-              marginBottom: "2rem",
-              textAlign: "center",
-              maxWidth: "42rem",
-              marginLeft: "auto",
-              marginRight: "auto",
-            }}
-          >
-            Vitória de Santo Antão / PE não foi escolha por acaso. É um dos
-            pontos com melhor logística rodoviária do Nordeste, o que se traduz
-            em prazos mais previsíveis e custos mais estáveis para quem está no
-            Maranhão, no extremo sul da Bahia ou no interior do Piauí.
-          </p>
-          <div
-            className="border-l-4 border-brand-blue bg-white p-4 sm:p-8"
-            style={{ marginBottom: "1px" }}
-          >
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6" style={{ marginBottom: "3rem" }}>
+            <h2
+              className="font-display font-bold text-white"
+              style={{
+                fontFamily: "'Oswald', sans-serif",
+                fontSize: "clamp(1.75rem, 4vw, 3rem)",
+                lineHeight: 1.1,
+              }}
+            >
+              Seis estados,
+              <br />
+              <span className="text-brand-orange">uma operação.</span>
+            </h2>
+            <p className="text-white/55 font-body text-sm leading-relaxed max-w-md">
+              Vitória de Santo Antão / PE não foi escolha por acaso. É um dos
+              pontos com melhor logística rodoviária do Nordeste, o que se
+              traduz em prazos mais previsíveis e custos mais estáveis para
+              quem produz na região.
+            </p>
+          </div>
+
+          {/* mapa em destaque */}
+          <div className="relative mx-auto" style={{ maxWidth: "520px", marginBottom: "4rem" }}>
             <div
-              className="overflow-hidden mx-auto w-full md:w-[75%]"
-              style={{ borderRadius: "4px" }}
+              className="relative overflow-hidden rounded-2xl"
+              style={{
+                background: "rgba(255,255,255,0.03)",
+                border: "1px solid rgba(255,255,255,0.08)",
+                boxShadow: "0 24px 60px rgba(0,0,0,0.4)",
+              }}
             >
               <img
                 src={mapa}
                 alt="Mapa de cobertura logística no Nordeste do Brasil"
-                style={{
-                  width: "100%",
-                  height: "auto",
-                  display: "block",
-                }}
+                style={{ width: "100%", height: "auto", display: "block" }}
               />
+            </div>
+            <div
+              className="absolute flex items-center gap-2 bg-brand-orange text-white rounded-full"
+              style={{
+                top: "-14px",
+                right: "-14px",
+                padding: "0.6rem 1.1rem",
+                boxShadow: "0 10px 30px rgba(223,83,66,0.45)",
+              }}
+            >
+              <span className="font-display font-bold" style={{ fontFamily: "'Oswald', sans-serif", fontSize: "1.2rem", lineHeight: 1 }}>
+                6
+              </span>
+              <span className="font-label text-[0.6rem] uppercase tracking-widest">estados</span>
             </div>
           </div>
 
+          {/* origem / hub */}
           <div
-            className="grid grid-cols-3 md:grid-cols-9 bg-[#e2e8f0]"
-            style={{ gap: "1px" }}
+            className="flex items-center gap-5 mx-auto"
+            style={{
+              maxWidth: "620px",
+              marginBottom: "2.5rem",
+              background: "rgba(223,83,66,0.08)",
+              border: "1px solid rgba(223,83,66,0.25)",
+              borderRadius: "12px",
+              padding: "1.25rem 1.5rem",
+            }}
           >
-            {[
-              { uf: "PE", nome: "Pernambuco" },
-              { uf: "AL", nome: "Alagoas" },
-              { uf: "BA", nome: "Bahia" },
-              { uf: "CE", nome: "Ceará" },
-              { uf: "MA", nome: "Maranhão" },
-              { uf: "PB", nome: "Paraíba" },
-              { uf: "PI", nome: "Piauí" },
-              { uf: "RN", nome: "Rio Grande do Norte" },
-              { uf: "SE", nome: "Sergipe" },
-            ].map(({ uf, nome }) => (
+            <div
+              className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0"
+              style={{ background: "rgba(223,83,66,0.15)", color: "#df5342" }}
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6" aria-hidden="true">
+                <path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zm10 0a2 2 0 11-4 0 2 2 0 014 0z" />
+                <path d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10l1.5.5M13 16l1.5.5M13 16H3m10 0h4.586a1 1 0 00.707-.293l2.414-2.414A1 1 0 0021 12.586V11a2 2 0 00-2-2h-2m-4-3H9M7 16h.01" />
+              </svg>
+            </div>
+            <div>
+              <p className="font-label font-bold uppercase text-brand-orange" style={{ fontSize: "0.65rem", letterSpacing: "0.15em" }}>
+                Origem · Centro de distribuição
+              </p>
+              <p className="font-display font-bold text-white" style={{ fontFamily: "'Oswald', sans-serif", fontSize: "1.15rem", marginTop: "0.2rem" }}>
+                Vitória de Santo Antão, Pernambuco
+              </p>
+            </div>
+          </div>
+
+          {/* estados de destino */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            {cobertura.map(({ uf, nome, detalhe }) => (
               <div
                 key={uf}
-                className="bg-white px-4 py-6 text-center group relative overflow-hidden"
-                style={{ transition: "background 0.2s" }}
-                onMouseEnter={(e) =>
-                  ((e.currentTarget as HTMLElement).style.background =
-                    "#fdf3f1")
-                }
-                onMouseLeave={(e) =>
-                  ((e.currentTarget as HTMLElement).style.background = "white")
-                }
+                className="group relative text-center overflow-hidden"
+                style={{
+                  background: "rgba(255,255,255,0.04)",
+                  border: "1px solid rgba(255,255,255,0.1)",
+                  borderRadius: "10px",
+                  padding: "1.5rem 1rem",
+                  transition: "background 0.25s, border-color 0.25s, transform 0.25s",
+                }}
+                onMouseEnter={(e) => {
+                  const el = e.currentTarget as HTMLDivElement;
+                  el.style.background = "rgba(255,255,255,0.08)";
+                  el.style.borderColor = "rgba(223,83,66,0.4)";
+                  el.style.transform = "translateY(-3px)";
+                }}
+                onMouseLeave={(e) => {
+                  const el = e.currentTarget as HTMLDivElement;
+                  el.style.background = "rgba(255,255,255,0.04)";
+                  el.style.borderColor = "rgba(255,255,255,0.1)";
+                  el.style.transform = "translateY(0)";
+                }}
               >
-                <div
-                  className="absolute top-0 left-0 right-0 h-[3px] bg-brand-orange origin-left"
-                  style={{
-                    transform: "scaleX(0)",
-                    transition: "transform 0.25s ease",
-                  }}
-                  ref={(el) => {
-                    if (el) {
-                      const p = el.parentElement;
-                      p?.addEventListener("mouseenter", () => {
-                        el.style.transform = "scaleX(1)";
-                      });
-                      p?.addEventListener("mouseleave", () => {
-                        el.style.transform = "scaleX(0)";
-                      });
-                    }
-                  }}
-                  aria-hidden="true"
-                />
                 <p
-                  className="ds-stat-num"
-                  style={{ fontSize: "clamp(1.75rem, 3vw, 2.5rem)" }}
+                  className="font-display font-bold text-white"
+                  style={{ fontFamily: "'Oswald', sans-serif", fontSize: "1.75rem", lineHeight: 1 }}
                 >
                   {uf}
                 </p>
                 <p
-                  className="ds-label"
-                  style={{
-                    marginTop: "0.4rem",
-                    fontSize: "0.55rem",
-                    lineHeight: 1.3,
-                  }}
+                  className="font-label text-white/45 uppercase"
+                  style={{ fontSize: "0.6rem", letterSpacing: "0.1em", marginTop: "0.4rem" }}
                 >
                   {nome}
                 </p>
+                <div
+                  className="mx-auto"
+                  style={{ width: "1.5rem", height: "1px", background: "rgba(255,255,255,0.15)", margin: "0.75rem auto" }}
+                />
+                <p className="font-body text-white/40 leading-snug" style={{ fontSize: "0.68rem" }}>
+                  {detalhe}
+                </p>
               </div>
             ))}
+          </div>
+
+          <p
+            className="text-white/40 font-body text-xs text-center"
+            style={{ marginTop: "1.5rem" }}
+          >
+            A cobertura varia dentro de cada estado. Confirme a da sua cidade
+            pelo WhatsApp.
+          </p>
+
+          {/* composição da frota */}
+          <div style={{ marginTop: "4rem" }}>
+            <div className="ds-eyebrow" style={{ marginBottom: "1.5rem" }}>
+              Composição da frota própria
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              {frota.map(({ qtd, tipo }) => (
+                <div
+                  key={tipo}
+                  className="text-center"
+                  style={{
+                    background: "rgba(255,255,255,0.04)",
+                    border: "1px solid rgba(255,255,255,0.1)",
+                    borderRadius: "10px",
+                    padding: "1.5rem 1rem",
+                  }}
+                >
+                  <p
+                    className="font-display font-bold text-brand-orange"
+                    style={{ fontFamily: "'Oswald', sans-serif", fontSize: "2.25rem", lineHeight: 1 }}
+                  >
+                    {qtd}
+                  </p>
+                  <p
+                    className="font-label text-white/50 uppercase leading-snug"
+                    style={{ fontSize: "0.6rem", letterSpacing: "0.1em", marginTop: "0.5rem" }}
+                  >
+                    {tipo}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -450,74 +527,33 @@ export default function Logistica() {
           >
             Conformidade documentada para transporte seguro
           </h2>
-          <div className="grid md:grid-cols-2 gap-1 bg-[#F4F5F9] mb-6">
-            <div className="ds-card">
-              <div
-                className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
-                style={{ background: "rgba(47,59,146,0.08)" }}
-              >
-                <svg
-                  className="w-6 h-6"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="#2F3B92"
-                  strokeWidth={1.75}
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M9 17a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm10 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0z" />
-                  <path d="M13 16V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10l1.5.5M13 16l1.5.5M13 16H3m10 0h4.586a1 1 0 0 0 .707-.293l2.414-2.414A1 1 0 0 0 21 12.586V11a2 2 0 0 0-2-2h-2m-4-3H9M7 16h.01" />
-                </svg>
+          <div className="grid md:grid-cols-2 gap-px bg-slate-200 mb-6">
+            {licencas.map((lic) => (
+              <div key={lic.sigla} className="bg-white p-8">
+                <div className="flex items-start justify-between gap-4" style={{ marginBottom: "0.75rem" }}>
+                  <h3
+                    className="font-display font-semibold text-[#131b4a] text-xl leading-snug"
+                    style={{ fontFamily: "'Oswald', sans-serif" }}
+                  >
+                    {lic.sigla}
+                  </h3>
+                  <span className="ds-chip orange flex-shrink-0">
+                    {lic.validade.includes("/")
+                      ? `Válido até ${lic.validade}`
+                      : lic.validade}
+                  </span>
+                </div>
+                <p className="font-body font-semibold text-slate-600 text-sm" style={{ marginBottom: "0.25rem" }}>
+                  {lic.nome}
+                </p>
+                <p className="font-mono text-brand-blue text-xs" style={{ marginBottom: "0.75rem" }}>
+                  {lic.numero}
+                </p>
+                <p className="text-slate-500 font-body text-sm leading-relaxed">
+                  {lic.desc}
+                </p>
               </div>
-              <h3
-                className="font-display font-semibold text-[#131b4a] text-xl"
-                style={{
-                  fontFamily: "'Oswald', sans-serif",
-                  marginBottom: "0.75rem",
-                }}
-              >
-                ANTT (Agência Nacional de Transportes Terrestres)
-              </h3>
-              <p className="text-slate-500 font-body text-sm leading-relaxed">
-                Operação registrada e regulamentada conforme exigência da
-                agência reguladora federal para transporte de cargas no Brasil.
-              </p>
-            </div>
-            <div className="ds-card">
-              <div
-                className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
-                style={{ background: "rgba(223,83,66,0.08)" }}
-              >
-                <svg
-                  className="w-6 h-6"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="#df5342"
-                  strokeWidth={1.75}
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                  <path d="M9 12l2 2 4-4" />
-                </svg>
-              </div>
-              <h3
-                className="font-display font-semibold text-[#131b4a] text-xl"
-                style={{
-                  fontFamily: "'Oswald', sans-serif",
-                  marginBottom: "0.75rem",
-                }}
-              >
-                MOPP (Movimentação Operacional de Produto Perigoso)
-              </h3>
-              <p className="text-slate-500 font-body text-sm leading-relaxed">
-                Motoristas certificados, com treinamento renovado
-                periodicamente. Pré-requisito legal para o transporte rodoviário
-                de produtos químicos.
-              </p>
-            </div>
+            ))}
           </div>
           <p className="text-slate-400 font-body text-sm text-center">
             Documentação completa disponível mediante solicitação. Trabalhamos

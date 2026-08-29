@@ -121,7 +121,6 @@ export default function Privacidade() {
     <div>
       <PageHeroShell>
         <div className="max-w-7xl mx-auto px-6">
-          <div className="ds-eyebrow mb-4">Documentação legal</div>
           <h1
             className="font-display font-bold text-white"
             style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', fontFamily: "'Oswald', sans-serif" }}

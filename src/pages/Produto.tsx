@@ -109,6 +109,31 @@ export default function Produto() {
                 )}
               </div>
 
+              {/* selos */}
+              {(produto.controladoPF || produto.distribuidor) && (
+                <div className="flex flex-wrap gap-2" style={{ marginBottom: '1.5rem' }}>
+                  {produto.controladoPF && (
+                    <span
+                      className="inline-flex items-center gap-1.5 font-label font-bold uppercase tracking-widest px-3 py-1.5 rounded-sm"
+                      style={{ background: 'rgba(217,119,6,0.18)', color: '#fbbf24', fontSize: '0.6rem' }}
+                    >
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-3 h-3" aria-hidden="true">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+                      </svg>
+                      Controlado pela Polícia Federal
+                    </span>
+                  )}
+                  {produto.distribuidor && (
+                    <span
+                      className="inline-flex items-center gap-1.5 font-label font-bold uppercase tracking-widest px-3 py-1.5 rounded-sm"
+                      style={{ background: 'rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.8)', fontSize: '0.6rem' }}
+                    >
+                      Distribuidor {produto.distribuidor}
+                    </span>
+                  )}
+                </div>
+              )}
+
               {/* description */}
               <p className="text-white/70 font-body text-base leading-relaxed" style={{ marginBottom: '2.5rem', maxWidth: '560px' }}>
                 {produto.descricao}
@@ -322,8 +347,8 @@ export default function Produto() {
                 Embalagem sob medida para sua operação
               </p>
               <p className="text-slate-500 font-body text-sm leading-relaxed">
-                Trabalhamos com sacos, tambores, bombonas, IBC e granel conforme o volume e as exigências do seu processo.
-                A apresentação padrão é <strong className="text-[#131b4a]">{produto.apresentacao}</strong>. Confirme variações disponíveis na cotação.
+                Fornecido na forma de <strong className="text-[#131b4a]">{produto.apresentacao}</strong>.
+                Embalagens e volumes são definidos na cotação, conforme as exigências do seu processo.
               </p>
             </div>
           </div>

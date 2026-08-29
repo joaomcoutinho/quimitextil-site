@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react'
-import { produtos, type CategoriaProduto } from '../data/produtos'
+import { produtos, distribuicoes, type CategoriaProduto } from '../data/produtos'
 import { segmentos, type SegmentoSlug } from '../data/segmentos'
 import { whatsappLink } from '../data/empresa'
 import CatalogCard, { catColors } from '../components/CatalogCard'
@@ -100,7 +100,6 @@ export default function Catalogo() {
         
         
         <div className="max-w-4xl mx-auto px-6 relative z-10">
-          <div className="ds-eyebrow" style={{ marginBottom: '1.25rem' }}>Catálogo de insumos</div>
           <h1
             className="text-white font-display font-bold"
             style={{
@@ -114,7 +113,7 @@ export default function Catalogo() {
             <span className="text-brand-orange">para o seu processo.</span>
           </h1>
           <p className="text-white/50 font-body text-sm" style={{ marginBottom: '2rem' }}>
-            33 insumos · 8 categorias · 9 estados
+            56 insumos · 8 categorias · 6 estados
           </p>
 
           {/* search */}
@@ -193,7 +192,7 @@ export default function Catalogo() {
           {/* segment + sort + clear */}
           <div className="flex flex-wrap items-center gap-2">
             <span className="font-label text-slate-400 text-[0.6rem] uppercase tracking-widest mr-1 flex-shrink-0">
-              Setor:
+              Segmento:
             </span>
             {segmentos.map(s => {
               const active = segmento === s.slug
@@ -388,6 +387,44 @@ export default function Catalogo() {
           </a>
         </div>
       </div>
+
+      {/* Marcas distribuídas */}
+      <section className="bg-[#F4F5F9] py-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="ds-row-label">
+            <span className="ds-label">Marcas distribuídas</span>
+          </div>
+          <h2
+            className="font-display font-bold text-[#131b4a]"
+            style={{
+              fontFamily: "'Oswald', sans-serif",
+              fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)',
+              marginBottom: '1rem',
+            }}
+          >
+            As marcas que distribuímos.
+          </h2>
+          <p className="text-slate-500 font-body max-w-2xl" style={{ marginBottom: '2.5rem' }}>
+            Além da linha própria, distribuímos produtos de fabricantes
+            reconhecidos, o que garante procedência, documentação e
+            regularidade de fornecimento.
+          </p>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-slate-200">
+            {distribuicoes.map((d) => (
+              <div key={d.marca} className="bg-white p-6" style={{ borderTop: '3px solid #df5342' }}>
+                <h3
+                  className="font-display font-bold text-[#131b4a]"
+                  style={{ fontFamily: "'Oswald', sans-serif", fontSize: '1.25rem', marginBottom: '0.5rem' }}
+                >
+                  {d.marca}
+                </h3>
+                <p className="text-slate-500 font-body text-sm leading-relaxed">{d.escopo}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
     </div>
   )

@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState, type ReactElement } from "react";
 import { Link } from "react-router-dom";
-import { whatsappLink, empresa } from "../data/empresa";
+import { whatsappLink, empresa, socios } from "../data/empresa";
 
 import logoQuimitextil from "../assets/logo_quimitextil-removebg-preview.png";
 import heroSobre from "../assets/foto_sobre.webp";
@@ -9,47 +9,47 @@ const timeline = [
   {
     ano: "1977",
     title: "Fundação",
-    text: "A Quimitêxtil é fundada em 8 de junho, em Vitória de Santo Antão / PE, para atender a indústria têxtil pernambucana.",
+    text: "A Quimitêxtil é idealizada e fundada pelo empresário Alexandre Moura Vasconcelos, em Vitória de Santo Antão / PE, com a missão de atender e superar as expectativas dos clientes.",
     color: "bg-brand-blue",
   },
   {
-    ano: "1980–1990",
-    title: "Expansão regional",
-    text: "A frota cresce. A área de atendimento se expande para o Nordeste todo. Deixamos de ser distribuidora local para nos consolidarmos como referência regional.",
+    ano: "Início",
+    title: "Comércio e Representação",
+    text: "A empresa nasce como Quimitêxtil Comércio e Representação, voltada exclusivamente para a indústria têxtil pernambucana.",
     color: "bg-brand-orange",
   },
   {
-    ano: "1990–2000",
-    title: "Diversificação setorial",
-    text: "A indústria muda. Acompanhamos. Entramos em alimentício, papel, cosméticos, tratamento de água. O catálogo cresce; a qualidade não cede.",
+    ano: "Anos 1980",
+    title: "A virada",
+    text: "Com a crise que acomete o mercado têxtil, Alexandre Vasconcelos entende que era o momento de expandir e, com capital próprio, inicia a distribuição e comercialização de produtos químicos para outros segmentos.",
     color: "bg-brand-blue",
   },
   {
-    ano: "2000–2010",
-    title: "Consolidação",
-    text: "Décadas de operação ininterrupta geram reconhecimento. Modernização de processos e firmação entre as principais distribuidoras químicas do Nordeste.",
+    ano: "Expansão",
+    title: "Além da têxtil",
+    text: "De fornecedora de um único setor, a Quimitêxtil se torna fornecedora para todo o mercado industrial, com atuação como distribuidora, importadora e revendedora para o Nordeste.",
     color: "bg-brand-orange",
   },
   {
-    ano: "2010–2024",
-    title: "Estrutura atualizada",
-    text: "Investimento em sistemas, rastreabilidade e canais digitais. A tradição se atualiza, sem perder o essencial: o atendimento direto que nos trouxe até aqui.",
+    ano: "Estrutura",
+    title: "Investimento contínuo",
+    text: "A preocupação em antecipar as demandas do mercado sustenta investimentos contínuos e planos estratégicos na área de logística, com soluções personalizadas para cada cliente.",
     color: "bg-brand-blue",
   },
   {
     ano: "Hoje",
     title: "A casa segue de pé",
-    text: "Mais de 33 produtos, 9 estados atendidos e uma operação movida pelo mesmo princípio fundador: fornecer a química que sustenta indústria séria.",
+    text: "56 produtos em catálogo, seis estados atendidos e distribuição de marcas como Esseco, Lonza e Saporiti, movidos pelo mesmo princípio fundador.",
     color: "bg-brand-orange",
   },
 ];
 
 const valores = [
-  "Palavra dada, palavra cumprida.",
-  "Tradição com olho no presente.",
-  "Cliente próximo, sem intermediário.",
-  "Qualidade que se prova na operação.",
-  "Compromisso com quem produz.",
+  "Ética e profissionalismo em cada negociação.",
+  "Confiança e transparência nos negócios.",
+  "Lucratividade com crescimento sustentável.",
+  "Responsabilidade socioambiental.",
+  "Sua preferência acompanha o nosso tempo.",
 ];
 
 import galpao from "../assets/galpao.jpeg";
@@ -58,28 +58,8 @@ import expedicao from "../assets/expedicao.jpeg";
 
 const certs = [
   {
-    nome: "ISO 9001",
-    desc: "Sistema de gestão da qualidade",
-    icon: (
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth={1.5}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="w-6 h-6"
-        aria-hidden="true"
-      >
-        <path d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-.623 3.716 3.745 3.745 0 01-3.716.623A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.716-.623 3.745 3.745 0 01-.623-3.716A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 01.623-3.716 3.746 3.746 0 013.716-.623A3.75 3.75 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.716.623 3.746 3.746 0 01.623 3.716A3.745 3.745 0 0121 12z" />
-      </svg>
-    ),
-    color: "#2F3B92",
-    bg: "rgba(47,59,146,0.09)",
-  },
-  {
-    nome: "Licença Ambiental",
-    desc: "Conformidade ambiental estadual",
+    nome: "CPRH",
+    desc: "Licença de Operação · válida até 02/08/2031",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -98,8 +78,8 @@ const certs = [
     bg: "rgba(5,150,105,0.09)",
   },
   {
-    nome: "ANTT",
-    desc: "Agência Nacional de Transportes",
+    nome: "Polícia Federal",
+    desc: "Certificado de Licença de Funcionamento · até 03/08/2027",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -111,8 +91,29 @@ const certs = [
         className="w-6 h-6"
         aria-hidden="true"
       >
-        <path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zm10 0a2 2 0 11-4 0 2 2 0 014 0z" />
-        <path d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10l1.5.5M13 16l1.5.5M13 16H3m10 0h4.586a1 1 0 00.707-.293l2.414-2.414A1 1 0 0021 12.586V11a2 2 0 00-2-2h-2m-4-3H9M7 16h.01" />
+        <path d="M12 3l7.5 3v5.25c0 4.28-3.2 8.28-7.5 9.75-4.3-1.47-7.5-5.47-7.5-9.75V6L12 3z" />
+        <path d="M9.75 12l1.5 1.5 3-3.75" />
+      </svg>
+    ),
+    color: "#2F3B92",
+    bg: "rgba(47,59,146,0.09)",
+  },
+  {
+    nome: "IBAMA",
+    desc: "Certificado de Regularidade CTF/APP · até 09/10/2026",
+    icon: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={1.5}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="w-6 h-6"
+        aria-hidden="true"
+      >
+        <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        <path d="M3.6 9h16.8M3.6 15h16.8M12 3a15 15 0 010 18M12 3a15 15 0 000 18" />
       </svg>
     ),
     color: "#df5342",
@@ -120,7 +121,7 @@ const certs = [
   },
   {
     nome: "MOPP",
-    desc: "Movimentação de Produto Perigoso",
+    desc: "4 motoristas certificados para produtos perigosos",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -156,7 +157,7 @@ const TimelineIcons: Record<string, ReactElement> = {
       <path d="M2.25 21h19.5m-18-18v18m2.25-18v18M15.75 3v18m2.25-18v18M6 6.75h.75m-.75 3h.75m-.75 3h.75m3-6H10.5m-.75 3h.75m-.75 3h.75M6 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008H17.25V10.5z" />
     </svg>
   ),
-  "1980–1990": (
+  "Início": (
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -170,7 +171,7 @@ const TimelineIcons: Record<string, ReactElement> = {
       <path d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z" />
     </svg>
   ),
-  "1990–2000": (
+  "Anos 1980": (
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -184,7 +185,7 @@ const TimelineIcons: Record<string, ReactElement> = {
       <path d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6" />
     </svg>
   ),
-  "2000–2010": (
+  "Expansão": (
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -198,7 +199,7 @@ const TimelineIcons: Record<string, ReactElement> = {
       <path d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 01-.982-3.172M9.497 14.25a7.454 7.454 0 00.981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 007.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 002.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 012.916.52 6.003 6.003 0 01-5.395 4.972m0 0a6.726 6.726 0 01-2.749 1.35m0 0a6.772 6.772 0 01-3.044 0" />
     </svg>
   ),
-  "2010–2024": (
+  "Estrutura": (
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -781,9 +782,6 @@ export default function Sobre() {
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
           <div className="max-w-3xl">
-            <div className="ds-eyebrow" style={{ marginBottom: "1.75rem" }}>
-              50 anos de história · Referência no setor químico
-            </div>
             <h1
               className="text-white font-display font-bold"
               style={{
@@ -791,6 +789,7 @@ export default function Sobre() {
                 fontSize: "clamp(2.25rem, 5.5vw, 4rem)",
                 lineHeight: 0.95,
                 letterSpacing: "-0.01em",
+                marginTop: "1.5rem",
                 marginBottom: "1.75rem",
               }}
             >
@@ -805,7 +804,7 @@ export default function Sobre() {
               style={{ marginBottom: "2.5rem" }}
             >
               Meio século de história construída pela indústria, com a
-              indústria. De Pernambuco para os 9 estados do Nordeste, com a
+              indústria. De Pernambuco para seis estados do Nordeste, com a
               autoridade de quem é referência no setor químico.
             </p>
             <div className="flex flex-wrap gap-3">
@@ -854,9 +853,9 @@ export default function Sobre() {
           >
             {[
               { num: "50 anos", label: "de história no setor" },
-              { num: "9", label: "Estados atendidos" },
-              { num: "30+", label: "Insumos no catálogo" },
-              { num: "100%", label: "Frota própria" },
+              { num: "6", label: "Estados atendidos" },
+              { num: "56", label: "Insumos no catálogo" },
+              { num: "72h", label: "Prazo máximo de entrega" },
             ].map((stat) => (
               <div
                 key={stat.label}
@@ -1095,8 +1094,8 @@ export default function Sobre() {
                 Missão
               </span>
               <p className="text-slate-600 font-body text-sm leading-relaxed">
-                Tornar a operação da indústria nordestina mais eficiente, com a
-                química certa entregue no momento certo.
+                Atender as expectativas dos clientes, com serviços de
+                qualidade, logística eficiente e segura.
               </p>
             </div>
 
@@ -1130,8 +1129,9 @@ export default function Sobre() {
                 Visão
               </span>
               <p className="text-slate-600 font-body text-sm leading-relaxed">
-                Ser, em cada segmento que atendemos, o nome em que a indústria
-                pensa primeiro quando precisa.
+                Ser conhecida nacional e internacionalmente como sólida,
+                confiável e comprometida com seus clientes, fornecedores e com
+                a responsabilidade socioambiental.
               </p>
             </div>
 
@@ -1405,10 +1405,29 @@ export default function Sobre() {
               </tr>
               <tr>
                 <td>Sede</td>
-                <td>{empresa.endereco}</td>
+                <td>{empresa.enderecoCompleto}</td>
               </tr>
             </tbody>
           </table>
+
+          {/* Diretoria */}
+          <div style={{ marginTop: "3rem" }}>
+            <div className="ds-row-label">
+              <span className="ds-label">Diretoria</span>
+            </div>
+            <div className="grid sm:grid-cols-2 gap-px bg-slate-200">
+              {socios.map((s) => (
+                <div key={s.nome} className="bg-white p-5">
+                  <p className="ds-label text-brand-orange" style={{ marginBottom: "0.35rem" }}>
+                    {s.cargo}
+                  </p>
+                  <p className="font-body font-semibold text-[#131b4a] text-sm leading-snug">
+                    {s.nome}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
