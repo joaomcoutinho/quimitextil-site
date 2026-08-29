@@ -12,9 +12,9 @@ export default function Layout() {
     window.scrollTo(0, 0)
   }, [pathname])
 
+  // Sem overflow-x no wrapper: ele criaria um contêiner de rolagem e quebraria
+  // o position:sticky do header. O corte horizontal fica no html e no body.
   return (
-    {/* Sem overflow-x aqui: ele criaria um contêiner de rolagem e quebraria
-        o position:sticky do header. O corte horizontal fica no html e no body. */}
     <div className="min-h-screen flex flex-col">
       <Header />
       <main className="flex-1 overflow-x-hidden">
