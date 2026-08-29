@@ -26,14 +26,23 @@
 * { box-sizing: border-box; }
 html {
   overflow-x: hidden;
+  /* Impede o efeito elástico ao passar do topo ou do fim da página */
+  overscroll-behavior-y: none;
+  /* Cor exibida caso o navegador ainda estique a rolagem: mesma do header e do rodapé */
+  background-color: #131b4a;
 }
 body {
   font-family: 'Poppins', sans-serif;
   color: #1a1a2e;
   overflow-x: hidden;
+  overscroll-behavior-y: none;
   max-width: 100vw;
   margin: 0;
   -webkit-font-smoothing: antialiased;
+}
+/* O conteúdo tem fundo próprio, para o navy do html só aparecer fora dos limites */
+#root {
+  background-color: #F4F5F9;
 }
 h1, h2, h3, h4, h5 {
   font-family: 'Oswald', 'Helvetica Neue', Helvetica, Arial, sans-serif;
