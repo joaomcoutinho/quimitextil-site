@@ -47,7 +47,7 @@ export default function SegmentoDetail() {
             rel="noreferrer"
             className="ds-btn-primary"
           >
-            Cotar produtos para {segmento.nome}
+            Solicitar cotação
           </a>
         </div>
       </PageHeroShell>

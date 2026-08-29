@@ -43,8 +43,8 @@ const whyCards = [
   },
   {
     n: "02",
-    title: "Frota própria com motoristas certificados",
-    text: "Caminhões-tanque, carrocerias e carreta próprios, conduzidos por motoristas certificados em MOPP. Parceiros homologados complementam a malha quando o volume exige.",
+    title: "Transporte com responsável do início ao fim",
+    text: "Caminhões-tanque, carrocerias e carreta conduzidos por motoristas certificados em MOPP, com transportadores parceiros homologados quando o volume exige. A carga nunca fica sem dono.",
   },
   {
     n: "03",
@@ -1017,19 +1017,18 @@ export default function Home() {
                 fontFamily: "'Oswald', sans-serif",
               }}
             >
-              Frota própria.
+              Quem transporta
               <br />
-              Motorista certificado.
+              responde pela carga.
               <br />
               <span className="text-brand-orange">Risco menor.</span>
             </h2>
 
             <p className="text-white/60 font-body text-base leading-relaxed mb-8 max-w-md">
               Em distribuição química industrial, o prazo se perde quando
-              ninguém responde pela carga. Operamos com frota própria e
-              motoristas com certificação MOPP documentada, e contamos com
-              transportadores parceiros homologados nas demandas de maior
-              volume.
+              ninguém responde pela carga. Aqui cada entrega tem um
+              responsável: motoristas com certificação MOPP documentada e
+              transportadores parceiros homologados quando o volume exige.
             </p>
 
             {/* feature list */}
@@ -1074,9 +1073,9 @@ export default function Home() {
               fontFamily: "'Oswald', sans-serif",
             }}
           >
-            Frota própria.
+            Quem transporta
             <br />
-            Motorista certificado.
+            responde pela carga.
             <br />
             <span className="text-brand-orange">Risco menor.</span>
           </h2>
@@ -1098,9 +1097,9 @@ export default function Home() {
 
           <p className="text-white/60 font-body text-base leading-relaxed mb-8">
             Em distribuição química industrial, o prazo se perde quando ninguém
-            responde pela carga. Operamos com frota própria e motoristas com
-            certificação MOPP documentada, e contamos com transportadores
-            parceiros homologados nas demandas de maior volume.
+            responde pela carga. Aqui cada entrega tem um responsável:
+            motoristas com certificação MOPP documentada e transportadores
+            parceiros homologados quando o volume exige.
           </p>
 
           {/* feature list, single column on mobile */}

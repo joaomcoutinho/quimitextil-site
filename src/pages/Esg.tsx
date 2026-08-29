@@ -366,14 +366,14 @@ export default function Esg() {
                   el.style.zIndex = ''
                 }}
               >
-                <div className="flex items-start justify-between gap-4 mb-3">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4 mb-3">
                   <h3
-                    className="font-display font-bold text-[#131b4a]"
+                    className="font-display font-bold text-[#131b4a] min-w-0"
                     style={{ fontFamily: "'Oswald', sans-serif", fontSize: '1.25rem' }}
                   >
                     {ref.nome}
                   </h3>
-                  <span className="ds-chip flex-shrink-0">{ref.fonte}</span>
+                  <span className="ds-chip self-start sm:flex-shrink-0">{ref.fonte}</span>
                 </div>
                 <p className="text-slate-500 font-body text-sm leading-relaxed">{ref.desc}</p>
               </div>

@@ -9,7 +9,7 @@ const categorias = [
     items: [
       {
         q: 'Quais produtos químicos vocês fornecem?',
-        a: 'Trabalhamos com 56 insumos químicos (ácidos, bases, sais, oxidantes, redutores, surfactantes, corantes e outros) para 8 segmentos industriais. Somos ainda distribuidores oficiais de marcas como Esseco, Lonza, Saporiti, Peroxy Bahia, Ciemil e EPA. Acesse o catálogo completo para ver todos os produtos disponíveis.',
+        a: 'Trabalhamos com 56 insumos químicos (ácidos, bases, sais, oxidantes, redutores, surfactantes, corantes e outros) para 8 segmentos industriais. Distribuímos ainda marcas como Esseco, Lonza, Saporiti, Peroxy Bahia, Ciemil e EPA. Acesse o catálogo completo para ver todos os produtos disponíveis.',
       },
       {
         q: 'Posso solicitar a FISPQ de um produto antes de comprar?',
@@ -34,7 +34,7 @@ const categorias = [
       },
       {
         q: 'Como é feita a entrega?',
-        a: 'Saída do nosso CD em Vitória de Santo Antão / PE, com frota própria e motoristas certificados em MOPP. Parceiros homologados complementam a malha quando o volume exige.',
+        a: 'Saída do nosso CD em Vitória de Santo Antão / PE, com veículos próprios e motoristas certificados em MOPP, além de transportadores parceiros homologados quando o volume exige.',
       },
       {
         q: 'Como funciona o frete?',

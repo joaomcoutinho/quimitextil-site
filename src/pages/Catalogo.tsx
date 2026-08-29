@@ -161,7 +161,7 @@ export default function Catalogo() {
       </div>
 
       {/* ── FILTERS ───────────────────────────────────────────── */}
-      <div className="bg-white border-b border-slate-200" style={{ position: 'sticky', top: '60px', zIndex: 30 }}>
+      <div className="bg-white border-b border-slate-200" style={{ position: 'sticky', top: '68px', zIndex: 30 }}>
         <div className="max-w-7xl mx-auto px-6" style={{ paddingTop: '1rem', paddingBottom: '1rem' }}>
 
           {/* category chips */}

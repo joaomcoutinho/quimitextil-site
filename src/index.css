@@ -154,6 +154,27 @@ a { text-decoration: none; }
 }
 .ds-btn-ghost:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.7); transform: translateY(-1px); }
 
+/* No celular, rótulo longo não pode empurrar o elemento para fora da tela:
+   deixa quebrar linha, limita à largura disponível e reduz o padding. */
+@media (max-width: 640px) {
+  .ds-btn-primary,
+  .ds-btn-secondary,
+  .ds-btn-ghost {
+    white-space: normal;
+    max-width: 100%;
+    padding: 12px 20px;
+    font-size: 0.75rem;
+    text-align: center;
+  }
+  .ds-chip {
+    white-space: normal;
+    max-width: 100%;
+    font-size: 0.55rem;
+    letter-spacing: 0.06em;
+    line-height: 1.35;
+  }
+}
+
 .ds-card {
   background: #fff;
   padding: 32px;

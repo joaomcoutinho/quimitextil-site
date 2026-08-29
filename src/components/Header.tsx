@@ -65,7 +65,7 @@ export default function Header() {
   return (
     <>
       <header
-        className="sticky top-0 z-40 relative overflow-hidden"
+        className="sticky top-0 z-40 overflow-hidden"
         style={{
           background: '#131b4a',
           boxShadow: scrolled

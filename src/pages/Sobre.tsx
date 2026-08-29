@@ -54,7 +54,7 @@ const valores = [
 
 import galpao from "../assets/galpao.jpeg";
 import frota from "../assets/frota2.jpeg";
-import expedicao from "../assets/expedicao.jpeg";
+import vistaAerea from "../assets/home-aerea-desktop.jpg";
 
 const certs = [
   {
@@ -1020,7 +1020,7 @@ export default function Sobre() {
             {[
               { label: "Sede / CD", img: galpao },
               { label: "Frota", img: frota },
-              { label: "Expedição", img: expedicao },
+              { label: "Vista aérea", img: vistaAerea },
             ].map((item) => (
               <div
                 key={item.label}

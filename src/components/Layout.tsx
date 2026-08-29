@@ -13,7 +13,9 @@ export default function Layout() {
   }, [pathname])
 
   return (
-    <div className="min-h-screen flex flex-col overflow-x-hidden">
+    {/* Sem overflow-x aqui: ele criaria um contêiner de rolagem e quebraria
+        o position:sticky do header. O corte horizontal fica no html e no body. */}
+    <div className="min-h-screen flex flex-col">
       <Header />
       <main className="flex-1 overflow-x-hidden">
         <Outlet />

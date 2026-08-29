@@ -50,14 +50,14 @@ export default function Logistica() {
               marginBottom: "1.25rem",
             }}
           >
-            Frota própria. Risco menor. Prazo cumprido.
+            Quem transporta responde pela carga.
           </h1>
 
           <p className="text-white/70 font-body text-base max-w-2xl">
             Em distribuição química industrial, o prazo se perde quando ninguém
-            responde pela carga. Por isso mantemos frota própria e motoristas
-            certificados em MOPP, com entrega em até 72 horas nos seis estados
-            que atendemos.
+            responde pela carga. Aqui cada entrega tem um responsável, com
+            motoristas certificados em MOPP e prazo de até 72 horas nos seis
+            estados que atendemos.
           </p>
         </div>
       </PageHeroShell>
@@ -530,14 +530,14 @@ export default function Logistica() {
           <div className="grid md:grid-cols-2 gap-px bg-slate-200 mb-6">
             {licencas.map((lic) => (
               <div key={lic.sigla} className="bg-white p-8">
-                <div className="flex items-start justify-between gap-4" style={{ marginBottom: "0.75rem" }}>
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4" style={{ marginBottom: "0.75rem" }}>
                   <h3
                     className="font-display font-semibold text-[#131b4a] text-xl leading-snug"
                     style={{ fontFamily: "'Oswald', sans-serif" }}
                   >
                     {lic.sigla}
                   </h3>
-                  <span className="ds-chip orange flex-shrink-0">
+                  <span className="ds-chip orange self-start sm:flex-shrink-0">
                     {lic.validade.includes("/")
                       ? `Válido até ${lic.validade}`
                       : lic.validade}
