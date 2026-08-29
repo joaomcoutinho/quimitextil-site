@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { empresa, whatsappLink } from "../data/empresa";
 import { segmentos } from "../data/segmentos";
 import SegmentIcon from "../components/SegmentIcon";
-import banner2 from "../assets/banner2.jpg";
+import heroAereaDesktop from "../assets/home-aerea-desktop.jpg";
+import heroAereaMobile from "../assets/home-aerea-mobile.jpg";
 
 import tratamentoAguaImg from "../assets/water_clarifier_portrait.jpg";
 import textilImg from "../assets/textile_dyeing_mill_yarn.jpg";
@@ -637,13 +638,28 @@ export default function Home() {
   return (
     <div>
       {/* Hero */}
-      <section
-        className="relative overflow-hidden min-h-[85vh] flex items-center bg-cover bg-center"
-        style={{ backgroundImage: `url(${banner2})` }}
-      >
-        {/* Overlay para escurecer a imagem e o texto ficar legível */}
+      <section className="relative overflow-hidden min-h-[85vh] flex items-center">
+        {/* Foto aérea da sede: recorte largo no desktop, retrato no celular */}
+        <img
+          src={heroAereaDesktop}
+          alt="Vista aérea da sede da Quimitêxtil em Vitória de Santo Antão, Pernambuco"
+          className="hidden md:block absolute inset-0 w-full h-full object-cover object-center"
+        />
+        <img
+          src={heroAereaMobile}
+          alt=""
+          aria-hidden="true"
+          className="md:hidden absolute inset-0 w-full h-full object-cover object-center"
+        />
+
+        {/* Véu escuro: mais denso à esquerda, onde fica o texto, e mais leve
+            à direita, para a estrutura da fábrica continuar visível */}
         <div
-          className="absolute inset-0 bg-[#131b4a]/75 z-0"
+          className="absolute inset-0 z-0"
+          style={{
+            background:
+              "linear-gradient(to right, rgba(19,27,74,0.92) 0%, rgba(19,27,74,0.82) 40%, rgba(19,27,74,0.58) 100%)",
+          }}
           aria-hidden="true"
         />
 

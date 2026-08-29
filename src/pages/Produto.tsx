@@ -1,10 +1,34 @@
 import { useParams, Navigate, Link } from 'react-router-dom'
-import { produtos, categoriasLabels, produtosRelacionados } from '../data/produtos'
+import { produtos, categoriasLabels, produtosRelacionados, type CategoriaProduto } from '../data/produtos'
 import { segmentos } from '../data/segmentos'
 import { whatsappLink } from '../data/empresa'
-import ProductImage from '../components/ProductImage'
 import CatalogCard, { catColors } from '../components/CatalogCard'
 import SegmentIcon from '../components/SegmentIcon'
+import logoQuimitextil from '../assets/logo_quimitextil-removebg-preview.png'
+
+import bgBases from '../assets/produto-bases.jpg'
+import bgSais from '../assets/produto-sais.jpg'
+import bgSurfactantes from '../assets/produto-surfactantes.jpg'
+import bgOxidantes from '../assets/produto-oxidantes.jpg'
+import bgRedutores from '../assets/produto-redutores.jpg'
+import bgCorantes from '../assets/produto-corantes.jpg'
+import bgOutros from '../assets/produto-outros.jpg'
+
+/**
+ * Fundo do hero por categoria de produto.
+ * TODO: 'acidos' usa o fundo grafite provisoriamente, até chegar a
+ * imagem em burnt sienna (#8A3B22) da categoria.
+ */
+const bgPorCategoria: Record<CategoriaProduto, string> = {
+  acidos: bgOutros,
+  bases: bgBases,
+  sais: bgSais,
+  surfactantes: bgSurfactantes,
+  oxidantes: bgOxidantes,
+  redutores: bgRedutores,
+  corantes: bgCorantes,
+  outros: bgOutros,
+}
 
 
 
@@ -28,31 +52,40 @@ export default function Produto() {
     <div className="bg-[#F4F5F9] overflow-x-hidden">
 
       {/* ── HERO ─────────────────────────────────────────────── */}
-      <div className="bg-[#131b4a] ds-grid-texture relative overflow-hidden">
-        <div className="absolute left-0 top-0 bottom-0 w-1 bg-brand-orange" aria-hidden="true" />
-        <div
-          className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-[140px] pointer-events-none"
-          style={{ background: c.accent + '18', transform: 'translate(30%, -30%)' }}
+      <div className="bg-[#131b4a] relative overflow-hidden">
+        {/* Fundo: cena da categoria do produto */}
+        <img
+          src={bgPorCategoria[produto.categoria]}
+          alt=""
           aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover object-right"
         />
-        {/* Orange glow, bottom left */}
+        {/* Véu escuro, mais denso à esquerda onde fica o texto */}
         <div
-          className="absolute pointer-events-none"
+          className="absolute inset-0"
           style={{
-            bottom: 0, left: '6%',
-            width: '320px', height: '320px',
-            background: 'radial-gradient(circle, rgba(223,83,66,0.15) 0%, transparent 70%)',
-            transform: 'translateY(40%)',
+            background:
+              'linear-gradient(to right, rgba(19,27,74,0.95) 0%, rgba(19,27,74,0.88) 45%, rgba(19,27,74,0.55) 100%)',
           }}
           aria-hidden="true"
         />
-        {/* Geometric decorators */}
-        <div className="absolute top-5 right-5 w-8 h-8 border border-white/10 pointer-events-none" aria-hidden="true" />
-        <div className="absolute top-5 right-[3.5rem] w-4 h-4 border border-brand-orange/20 pointer-events-none" aria-hidden="true" />
-        <div className="absolute bottom-5 right-5 w-8 h-8 border border-white/10 pointer-events-none" aria-hidden="true" />
-        <div className="absolute bottom-9 right-[3.5rem] w-2 h-2 bg-brand-orange/30 pointer-events-none" aria-hidden="true" />
+        {/* Logo da marca, no canto reservado pela composição da imagem */}
+        <img
+          src={logoQuimitextil}
+          alt=""
+          aria-hidden="true"
+          className="hidden md:block absolute bottom-6 right-6 h-9 w-auto opacity-40 pointer-events-none"
+          style={{ filter: 'brightness(0) invert(1)' }}
+        />
+        <div className="absolute left-0 top-0 bottom-0 w-1 bg-brand-orange z-10" aria-hidden="true" />
+        {/* Tom da categoria, sutil sobre a foto */}
+        <div
+          className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-[140px] pointer-events-none"
+          style={{ background: c.accent + '14', transform: 'translate(30%, -30%)' }}
+          aria-hidden="true"
+        />
 
-        <div className="max-w-7xl mx-auto px-6" style={{ paddingTop: '2.5rem', paddingBottom: '3rem' }}>
+        <div className="max-w-7xl mx-auto px-6 relative z-10" style={{ paddingTop: '2.5rem', paddingBottom: '3rem' }}>
           {/* breadcrumb */}
           <nav
             className="flex items-center gap-2 font-label text-white/30"
@@ -66,7 +99,7 @@ export default function Produto() {
             <span className="text-white/60">{produto.nome}</span>
           </nav>
 
-          <div className="grid lg:grid-cols-[1fr_360px] gap-12 items-center">
+          <div className="max-w-3xl">
 
             {/* left: content */}
             <div>
@@ -139,16 +172,6 @@ export default function Produto() {
                 {produto.descricao}
               </p>
 
-              {/* Mobile: mesma imagem do hero, acima de Solicitar cotação */}
-              <div className="lg:hidden w-full mb-8 flex justify-center">
-                <div
-                  className="rounded-sm overflow-hidden w-full max-w-[min(100%,18.5rem)] sm:max-w-xs"
-                  style={{ boxShadow: `0 24px 60px -12px ${c.accent}44` }}
-                >
-                  <ProductImage produto={produto} showFormula />
-                </div>
-              </div>
-
               {/* CTAs */}
               <div className="flex flex-wrap gap-3">
                 <a
@@ -179,15 +202,6 @@ export default function Produto() {
               </p>
             </div>
 
-            {/* right: product image */}
-            <div className="hidden lg:block">
-              <div
-                className="rounded-sm overflow-hidden"
-                style={{ boxShadow: `0 24px 60px -12px ${c.accent}44` }}
-              >
-                <ProductImage produto={produto} showFormula />
-              </div>
-            </div>
           </div>
         </div>
 
