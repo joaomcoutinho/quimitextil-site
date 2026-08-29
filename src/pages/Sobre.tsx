@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { whatsappLink, empresa, socios } from "../data/empresa";
 
 import logoQuimitextil from "../assets/logo_quimitextil-removebg-preview.png";
-import heroSobre from "../assets/foto_sobre.webp";
+import heroSobre from "../assets/industrial_facility_exterior_v2.jpg";
 
 const timeline = [
   {

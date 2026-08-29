@@ -5,14 +5,14 @@ import { segmentos } from "../data/segmentos";
 import SegmentIcon from "../components/SegmentIcon";
 import banner2 from "../assets/banner2.jpg";
 
-import tratamentoAguaImg from "../assets/tratamento2.avif";
-import textilImg from "../assets/textil2.jpg";
-import alimenticioImg from "../assets/alimenticio2.jpg";
-import saneantesImg from "../assets/saneantes2.avif";
+import tratamentoAguaImg from "../assets/water_clarifier_portrait.jpg";
+import textilImg from "../assets/textile_dyeing_mill_yarn.jpg";
+import alimenticioImg from "../assets/food_processing_production_line.jpg";
+import saneantesImg from "../assets/detergent_filling_line.jpg";
 import papelImg from "../assets/papel2.avif";
-import cosmeticosImg from "../assets/farmaceuticos2.jpg";
-import curtumeImg from "../assets/curtume2.jpg";
-import agropecuarioImg from "../assets/agropecuario2.avif";
+import cosmeticosImg from "../assets/cleanroom_mixing_vessel.jpg";
+import curtumeImg from "../assets/leather_tannery_drums.jpg";
+import agropecuarioImg from "../assets/northeast_brazil_agricultural_land.jpg";
 
 import frotaImg from "../assets/caminhao_qualidade.jpg";
 

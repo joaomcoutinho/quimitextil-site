@@ -2,7 +2,7 @@ import { whatsappLink, cobertura, frota, licencas } from "../data/empresa";
 import PageHeroShell from "../components/PageHeroShell";
 import mapa from "../assets/mapa_quimitextil.webp";
 
-import heroLogistica from "../assets/logistica.webp";
+import heroLogistica from "../assets/chemical_loading_dock.jpg";
 
 const diferenciais = [
   {

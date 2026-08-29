@@ -5,7 +5,7 @@ import { whatsappLink } from '../data/empresa'
 import CatalogCard, { catColors } from '../components/CatalogCard'
 import { categoriasLabels } from '../data/produtos'
 
-import heroCatalogo from "../assets/catalogo.jpg";
+import heroCatalogo from "../assets/chemical_warehouse_shelving.jpg";
 
 const catOrder: CategoriaProduto[] = [
   'acidos', 'bases', 'sais', 'surfactantes',

@@ -2,7 +2,7 @@ import { useRef, useEffect, type ReactElement } from 'react'
 import { Link } from 'react-router-dom'
 import { whatsappLink } from '../data/empresa'
 
-import heroEsg from '../assets/tratamentoAgua.jpeg'
+import heroEsg from '../assets/modern_water_treatment_facility.jpg'
 
 // ─── Os três pilares do ESG ────────────────────────────────────────────────
 type Pilar = {

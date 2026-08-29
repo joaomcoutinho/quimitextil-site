@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { empresa, whatsappLink } from "../data/empresa";
 
-import heroContato from "../assets/contato.jpg";
+import heroContato from "../assets/industrial_facility_office.jpg";
 import PageHeroShell from "../components/PageHeroShell";
 
 export default function Contato() {

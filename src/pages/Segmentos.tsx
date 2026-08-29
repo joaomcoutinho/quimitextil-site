@@ -4,16 +4,16 @@ import { produtosPorSegmento } from "../data/produtos";
 import SegmentIcon from "../components/SegmentIcon";
 import PageHeroShell from "../components/PageHeroShell";
 
-import heroSegmentos from "../assets/segmentos.jpg";
+import heroSegmentos from "../assets/industrial_complex_blue_hour.jpg";
 
-import tratamentoAguaImg from "../assets/tratamento2.avif";
-import textilImg from "../assets/textil2.jpg";
-import alimenticioImg from "../assets/alimenticio2.jpg";
-import saneantesImg from "../assets/saneantes2.avif";
+import tratamentoAguaImg from "../assets/water_clarifier_portrait.jpg";
+import textilImg from "../assets/textile_dyeing_mill_yarn.jpg";
+import alimenticioImg from "../assets/food_processing_production_line.jpg";
+import saneantesImg from "../assets/detergent_filling_line.jpg";
 import papelImg from "../assets/papel2.avif";
-import cosmeticosImg from "../assets/farmaceuticos2.jpg";
-import curtumeImg from "../assets/curtume2.jpg";
-import agropecuarioImg from "../assets/agropecuario2.avif";
+import cosmeticosImg from "../assets/cleanroom_mixing_vessel.jpg";
+import curtumeImg from "../assets/leather_tannery_drums.jpg";
+import agropecuarioImg from "../assets/northeast_brazil_agricultural_land.jpg";
 
 const segmentImages: Record<string, string> = {
   "tratamento-de-agua": tratamentoAguaImg,

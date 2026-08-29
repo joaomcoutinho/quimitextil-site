@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Originais PNG de alta resolução (fonte para as versões otimizadas em src/assets)
+/assets/*.png
