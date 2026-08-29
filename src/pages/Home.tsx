@@ -15,7 +15,7 @@ import cosmeticosImg from "../assets/cleanroom_mixing_vessel.jpg";
 import curtumeImg from "../assets/leather_tannery_drums.jpg";
 import agropecuarioImg from "../assets/northeast_brazil_agricultural_land.jpg";
 
-import frotaImg from "../assets/caminhao_qualidade.jpg";
+import frotaImg from "../assets/home-frota-aerea.jpg";
 
 const segmentImages: Record<string, string> = {
   "tratamento-de-agua": tratamentoAguaImg,
@@ -983,7 +983,7 @@ export default function Home() {
               {/* imagem real da frota */}
               <img
                 src={frotaImg}
-                alt="Frota Quimitêxtil"
+                alt="Frota da Quimitêxtil no pátio da sede, em Vitória de Santo Antão"
                 className="absolute inset-0 w-full h-full object-cover"
               />
 
@@ -1017,9 +1017,9 @@ export default function Home() {
                 fontFamily: "'Oswald', sans-serif",
               }}
             >
-              Quem transporta
+              Frota estruturada.
               <br />
-              responde pela carga.
+              Motorista certificado.
               <br />
               <span className="text-brand-orange">Risco menor.</span>
             </h2>
@@ -1073,9 +1073,9 @@ export default function Home() {
               fontFamily: "'Oswald', sans-serif",
             }}
           >
-            Quem transporta
+            Frota estruturada.
             <br />
-            responde pela carga.
+            Motorista certificado.
             <br />
             <span className="text-brand-orange">Risco menor.</span>
           </h2>
@@ -1086,7 +1086,7 @@ export default function Home() {
           >
             <img
               src={frotaImg}
-              alt="Frota Quimitêxtil"
+              alt="Frota da Quimitêxtil no pátio da sede, em Vitória de Santo Antão"
               className="absolute inset-0 w-full h-full object-cover object-center"
             />
             <div
