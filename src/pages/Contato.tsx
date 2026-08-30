@@ -56,7 +56,7 @@ export default function Contato() {
       <section className="bg-white py-16">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12">
-            <div>
+            <div className="min-w-0">
               <div className="ds-row-label">
                 <span className="ds-label">Canais de atendimento</span>
               </div>
@@ -168,7 +168,7 @@ export default function Contato() {
                   </div>
                   <div className="min-w-0">
                     <p className="ds-label text-brand-orange mb-1">E-MAIL</p>
-                    <p className="font-body font-semibold text-[#131b4a] text-lg break-words">
+                    <p className="font-body font-semibold text-[#131b4a] text-lg break-all">
                       {empresa.email}
                     </p>
                     <p className="text-slate-500 font-body text-sm">
@@ -197,7 +197,7 @@ export default function Contato() {
               </div>
             </div>
 
-            <div>
+            <div className="min-w-0">
               <div className="ds-row-label">
                 <span className="ds-label">Solicitar cotação</span>
               </div>
