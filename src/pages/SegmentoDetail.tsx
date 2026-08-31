@@ -1,16 +1,18 @@
-import { useParams, Navigate, Link } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { getSegmento } from '../data/segmentos'
 import { produtosPorSegmento } from '../data/produtos'
 import { whatsappLink } from '../data/empresa'
 import CatalogCard from '../components/CatalogCard'
 import SegmentIcon from '../components/SegmentIcon'
 import PageHeroShell from '../components/PageHeroShell'
+import NaoEncontrado from './NaoEncontrado'
 
 export default function SegmentoDetail() {
   const { slug } = useParams<{ slug: string }>()
   const segmento = getSegmento(slug ?? '')
 
-  if (!segmento) return <Navigate to="/segmentos" />
+  // Slug inexistente e um 404 de verdade, nao um desvio silencioso para a lista
+  if (!segmento) return <NaoEncontrado />
 
   const segProdutos = produtosPorSegmento(segmento.slug)
   const cotarMsg = `Olá! Atuo no segmento ${segmento.nome} e gostaria de cotar produtos com a Quimitêxtil.`

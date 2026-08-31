@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#131b4a" />
+    <meta name="robots" content="noindex" />
+    <link rel="icon" type="image/svg+xml" href="/quimitextil-site/favicon.svg" />
+    <title>Quimitêxtil</title>
+    <!--
+      O GitHub Pages nao conhece as rotas do site: qualquer endereco que nao seja
+      um arquivo real cai aqui. Este script reescreve o caminho como query string
+      e devolve para o index.html, que restaura o endereco original e entrega a
+      rota ao React Router. E o que faz um link direto para /esg ou
+      /produto/acido-citrico abrir a pagina certa em vez do 404 do GitHub.
+      Se a rota tambem nao existir no site, o React Router mostra a pagina 404.
+    -->
+    <script>
+      (function () {
+        // 1 = o nome do repositorio, que faz parte do caminho no GitHub Pages
+        var segmentosDaBase = 1
+        var l = window.location
+        l.replace(
+          l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+          l.pathname.split('/').slice(0, 1 + segmentosDaBase).join('/') + '/?/' +
+          l.pathname.slice(1).split('/').slice(segmentosDaBase).join('/').replace(/&/g, '~e~') +
+          (l.search ? '&' + l.search.slice(1) : '') +
+          l.hash
+        )
+      })()
+    </script>
+    <style>
+      html, body { margin: 0; height: 100%; background: #131b4a; }
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        color: rgba(255, 255, 255, 0.45);
+        font-size: 0.7rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      a { color: #df5342; text-decoration: none; }
+    </style>
+  </head>
+  <body>
+    <!-- Tela de espera durante o redirecionamento. So fica visivel se o
+         JavaScript estiver desativado, e ai o link resolve. -->
+    <p>Carregando &middot; <a href="/quimitextil-site/">Ir para o site da Quimitêxtil</a></p>
+  </body>
+</html>

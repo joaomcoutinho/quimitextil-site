@@ -23,7 +23,7 @@
       property="og:description"
       content="56 insumos para 8 segmentos industriais, com logística própria e entrega em até 72 horas em 6 estados do Nordeste. Atendimento sem intermediário."
     />
-    <meta property="og:image" content="https://joaomcoutinho.github.io/quimitextil-site/og-image.jpg" />
+    <meta property="og:image" content="https://joaomcoutinho.github.io/quimitextil-site/og-quimitextil-aerea.jpg" />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -39,7 +39,23 @@
       name="twitter:description"
       content="56 insumos para 8 segmentos industriais, com logística própria e entrega em até 72 horas em 6 estados do Nordeste. Atendimento sem intermediário."
     />
-    <meta name="twitter:image" content="https://joaomcoutinho.github.io/quimitextil-site/og-image.jpg" />
+    <meta name="twitter:image" content="https://joaomcoutinho.github.io/quimitextil-site/og-quimitextil-aerea.jpg" />
+
+    <!--
+      Contraparte do public/404.html: quando o GitHub Pages devolve um caminho
+      convertido em query string (/?/esg), este script restaura o endereco
+      original antes do React Router iniciar. Precisa vir antes do modulo do app.
+    -->
+    <script>
+      (function (l) {
+        if (l.search[1] === '/') {
+          var caminho = l.search.slice(1).split('&').map(function (parte) {
+            return parte.replace(/~e~/g, '&')
+          }).join('?')
+          window.history.replaceState(null, null, l.pathname.slice(0, -1) + caminho + l.hash)
+        }
+      })(window.location)
+    </script>
 
     <script type="module" src="/src/main.tsx"></script>
   </head>

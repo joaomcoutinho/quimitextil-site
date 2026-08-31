@@ -1,10 +1,11 @@
-import { useParams, Navigate, Link } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { produtos, categoriasLabels, produtosRelacionados, type CategoriaProduto } from '../data/produtos'
 import { segmentos } from '../data/segmentos'
 import { whatsappLink } from '../data/empresa'
 import CatalogCard, { catColors } from '../components/CatalogCard'
 import SegmentIcon from '../components/SegmentIcon'
 import logoQuimitextil from '../assets/logo_quimitextil-removebg-preview.png'
+import NaoEncontrado from './NaoEncontrado'
 
 import bgBases from '../assets/produto-bases.jpg'
 import bgSais from '../assets/produto-sais.jpg'
@@ -36,7 +37,8 @@ export default function Produto() {
   const { slug } = useParams<{ slug: string }>()
   const produto = produtos.find(p => p.slug === slug)
 
-  if (!produto) return <Navigate to="/catalogo" />
+  // Slug inexistente e um 404 de verdade, nao um desvio silencioso para o catalogo
+  if (!produto) return <NaoEncontrado />
 
   const related = produtosRelacionados(produto.slug)
   const c = catColors[produto.categoria]

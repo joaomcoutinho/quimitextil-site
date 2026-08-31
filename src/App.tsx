@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout'
 import Home from './pages/Home'
 import Catalogo from './pages/Catalogo'
@@ -11,6 +11,7 @@ import Contato from './pages/Contato'
 import Logistica from './pages/Logistica'
 import FAQ from './pages/FAQ'
 import Privacidade from './pages/Privacidade'
+import NaoEncontrado from './pages/NaoEncontrado'
 
 export default function App() {
   return (
@@ -28,7 +29,8 @@ export default function App() {
           <Route path="/logistica" element={<Logistica />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/politica-de-privacidade" element={<Privacidade />} />
-          <Route path="*" element={<Navigate to="/" />} />
+          {/* Rota desconhecida: pagina 404 propria, em vez de mandar em silencio para a home */}
+          <Route path="*" element={<NaoEncontrado />} />
         </Route>
       </Routes>
     </BrowserRouter>
