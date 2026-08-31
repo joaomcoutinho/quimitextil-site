@@ -160,8 +160,12 @@ export default function Catalogo() {
         />
       </div>
 
-      {/* ── FILTERS ───────────────────────────────────────────── */}
-      <div className="bg-white border-b border-slate-200" style={{ position: 'sticky', top: '68px', zIndex: 30 }}>
+      {/* ── FILTROS ───────────────────────────────────────────
+          Fixo só a partir de md. No celular as fileiras de chips ocupam boa
+          parte da tela e a barra grudada disputava espaço com os produtos,
+          além de repintar a cada quadro do scroll. Ali ela rola junto e some;
+          para filtrar de novo, volta-se ao topo. */}
+      <div className="bg-white border-b border-slate-200 md:sticky md:top-[68px] md:z-30">
         <div className="max-w-7xl mx-auto px-6" style={{ paddingTop: '1rem', paddingBottom: '1rem' }}>
 
           {/* category chips */}
