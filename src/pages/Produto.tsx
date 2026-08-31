@@ -41,6 +41,40 @@ export default function Produto() {
   const related = produtosRelacionados(produto.slug)
   const c = catColors[produto.categoria]
 
+  /* Ficha técnica: só entram os campos que o produto realmente possui, para a
+     faixa nunca terminar com uma célula vazia quando não há fórmula. */
+  const specs = [
+    ...(produto.formula
+      ? [{
+          label: 'Fórmula',
+          value: (
+            <span className="font-mono font-bold truncate block" style={{ fontSize: '1.15rem', color: c.accent }}>
+              {produto.formula}
+            </span>
+          ),
+        }]
+      : []),
+    {
+      label: 'Forma física',
+      value: (
+        <span className="font-body font-semibold text-[#131b4a] text-sm leading-snug">
+          {produto.apresentacao}
+        </span>
+      ),
+    },
+    {
+      label: 'Tipo químico',
+      value: (
+        <span
+          className="font-label font-bold text-[0.6rem] uppercase tracking-widest px-2.5 py-1 rounded-sm inline-block"
+          style={{ background: c.bg, color: c.text }}
+        >
+          {categoriasLabels[produto.categoria]}
+        </span>
+      ),
+    },
+  ]
+
   const cotarMsg = `Olá! Quero cotar ${produto.nome}${produto.formula ? ` (${produto.formula})` : ''} com a Quimitêxtil.`
   const fispqMsg = `Olá! Preciso da FISPQ do produto ${produto.nome}${produto.formula ? ` (${produto.formula})` : ''}, vocês podem enviar?`
 
@@ -208,45 +242,29 @@ export default function Produto() {
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" aria-hidden="true" />
       </div>
 
-      {/* ── SPECS STRIP ──────────────────────────────────────── */}
-      <div className="bg-white border-b border-slate-100">
+      {/* ── FICHA TÉCNICA ────────────────────────────────────
+          flex (e não grid de 2/3 colunas): com 2 ou 3 itens a linha se
+          completa sozinha e nunca sobra o quadrante vazio que aparecia no
+          celular. Cada card carrega o mesmo filete da categoria à esquerda. */}
+      <div className="bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-3 overflow-hidden" style={{ gap: '1px', background: '#f1f5f9' }}>
-            {produto.formula && (
-              <div className="bg-white px-4 py-5 md:px-8 md:py-6 min-w-0" style={{ borderLeft: `3px solid ${c.accent}` }}>
-                <p className="font-label text-slate-400 text-[0.6rem] uppercase tracking-widest" style={{ marginBottom: '0.5rem' }}>
-                  Fórmula
-                </p>
-                <p className="font-mono font-bold truncate" style={{ fontSize: '1.2rem', color: c.accent }}>
-                  {produto.formula}
-                </p>
-              </div>
-            )}
-            <div className="bg-white px-4 py-5 md:px-8 md:py-6 min-w-0">
-              <p className="font-label text-slate-400 text-[0.6rem] uppercase tracking-widest" style={{ marginBottom: '0.5rem' }}>
-                Forma física
-              </p>
-              <p className="font-body font-semibold text-[#131b4a] text-sm leading-snug">{produto.apresentacao}</p>
-            </div>
-            <div className="bg-white px-4 py-5 md:px-8 md:py-6 min-w-0">
-              <p className="font-label text-slate-400 text-[0.6rem] uppercase tracking-widest" style={{ marginBottom: '0.5rem' }}>
-                Tipo químico
-              </p>
-              <span
-                className="font-label font-bold text-[0.6rem] uppercase tracking-widest px-2 py-1 rounded-sm inline-block"
-                style={{ background: c.bg, color: c.text, wordBreak: 'break-word' }}
+          <div className="flex flex-col sm:flex-row" style={{ gap: '1px', background: '#e8ecf3' }}>
+            {specs.map(spec => (
+              <div
+                key={spec.label}
+                className="bg-white flex-1 min-w-0 flex items-center justify-between gap-4 px-4 py-3.5 sm:flex-col sm:items-start sm:justify-center sm:gap-0 sm:px-7 sm:py-6"
+                style={{ borderLeft: `3px solid ${c.accent}` }}
               >
-                {categoriasLabels[produto.categoria]}
-              </span>
-            </div>
+                <p className="font-label text-slate-400 text-[0.6rem] uppercase tracking-widest whitespace-nowrap mb-0 sm:mb-2">
+                  {spec.label}
+                </p>
+                <div className="min-w-0 flex items-center justify-end sm:justify-start min-h-[1.75rem] text-right sm:text-left">
+                  {spec.value}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-        {/* Bottom fade line */}
-        <div
-          className="absolute bottom-0 left-0 right-0 h-px pointer-events-none"
-          style={{ background: 'linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent)' }}
-          aria-hidden="true"
-        />
       </div>
 
       {/* ── APLICAÇÕES + SEGMENTOS ───────────────────────────── */}

@@ -1,6 +1,6 @@
 import { whatsappLink, cobertura, frota, licencas } from "../data/empresa";
 import PageHeroShell from "../components/PageHeroShell";
-import mapa from "../assets/mapa_quimitextil.webp";
+import mapa from "../assets/mapa-6-estados.png";
 
 import heroLogistica from "../assets/chemical_loading_dock.jpg";
 
@@ -358,17 +358,21 @@ export default function Logistica() {
 
           {/* mapa em destaque */}
           <div className="relative mx-auto" style={{ maxWidth: "520px", marginBottom: "4rem" }}>
+            {/* Painel claro: o corpo do mapa é navy e sumiria contra o fundo
+                escuro da seção. Sobre o cinza-claro, o Brasil lê nítido e os
+                seis estados em laranja saltam. */}
             <div
               className="relative overflow-hidden rounded-2xl"
               style={{
-                background: "rgba(255,255,255,0.03)",
-                border: "1px solid rgba(255,255,255,0.08)",
+                background: "#F4F5F9",
+                border: "1px solid rgba(255,255,255,0.12)",
                 boxShadow: "0 24px 60px rgba(0,0,0,0.4)",
+                padding: "1.5rem",
               }}
             >
               <img
                 src={mapa}
-                alt="Mapa de cobertura logística no Nordeste do Brasil"
+                alt="Mapa do Brasil com Pernambuco, Alagoas, Sergipe, Paraíba, Rio Grande do Norte e Ceará destacados como a área atendida pela Quimitêxtil"
                 style={{ width: "100%", height: "auto", display: "block" }}
               />
             </div>
