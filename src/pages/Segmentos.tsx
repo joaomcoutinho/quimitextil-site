@@ -12,7 +12,7 @@ import alimenticioImg from "../assets/food_processing_production_line.jpg";
 import saneantesImg from "../assets/detergent_filling_line.jpg";
 import papelImg from "../assets/papel2.avif";
 import cosmeticosImg from "../assets/cleanroom_mixing_vessel.jpg";
-import curtumeImg from "../assets/leather_tannery_drums.jpg";
+import curtumeImg from "../assets/leather_tannery_modern.jpg";
 import agropecuarioImg from "../assets/northeast_brazil_agricultural_land.jpg";
 
 const segmentImages: Record<string, string> = {
