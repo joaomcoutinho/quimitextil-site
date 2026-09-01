@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState, type ReactElement } from "react";
+import { useRef, useEffect, useState, type ReactElement, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import { whatsappLink, empresa, socios } from "../data/empresa";
 
@@ -53,7 +53,7 @@ const valores = [
 ];
 
 import galpao from "../assets/galpao.jpeg";
-import frota from "../assets/frota2.jpeg";
+import frota from "../assets/home-frota-aerea.jpg";
 import vistaAerea from "../assets/home-aerea-desktop.jpg";
 
 const certs = [
@@ -1067,11 +1067,11 @@ export default function Sobre() {
           <div className="grid md:grid-cols-3 gap-px bg-slate-200">
             {/* Missão */}
             <div
-              className="bg-white p-8 group relative overflow-hidden"
-              style={{ borderTop: "3px solid #df5342" }}
+              className="ds-proposito"
+              style={{ "--acento": "#df5342", "--acento-claro": "#ff8f7e" } as CSSProperties}
             >
               <div
-                className="w-10 h-10 rounded-lg flex items-center justify-center mb-5"
+                className="ds-proposito-icone w-10 h-10 rounded-lg flex items-center justify-center mb-5"
                 style={{ background: "rgba(223,83,66,0.09)", color: "#df5342" }}
               >
                 <svg
@@ -1088,12 +1088,12 @@ export default function Sobre() {
                 </svg>
               </div>
               <span
-                className="ds-label text-brand-orange"
+                className="ds-proposito-rotulo ds-label text-brand-orange"
                 style={{ display: "block", marginBottom: "0.75rem" }}
               >
                 Missão
               </span>
-              <p className="text-slate-600 font-body text-sm leading-relaxed">
+              <p className="ds-proposito-texto text-slate-600 font-body text-sm leading-relaxed">
                 Atender as expectativas dos clientes, com serviços de
                 qualidade, logística eficiente e segura.
               </p>
@@ -1101,11 +1101,11 @@ export default function Sobre() {
 
             {/* Visão */}
             <div
-              className="bg-white p-8 group relative overflow-hidden"
-              style={{ borderTop: "3px solid #2F3B92" }}
+              className="ds-proposito"
+              style={{ "--acento": "#2F3B92", "--acento-claro": "#93a0ee" } as CSSProperties}
             >
               <div
-                className="w-10 h-10 rounded-lg flex items-center justify-center mb-5"
+                className="ds-proposito-icone w-10 h-10 rounded-lg flex items-center justify-center mb-5"
                 style={{ background: "rgba(47,59,146,0.09)", color: "#2F3B92" }}
               >
                 <svg
@@ -1123,12 +1123,12 @@ export default function Sobre() {
                 </svg>
               </div>
               <span
-                className="ds-label text-brand-blue"
+                className="ds-proposito-rotulo ds-label text-brand-blue"
                 style={{ display: "block", marginBottom: "0.75rem" }}
               >
                 Visão
               </span>
-              <p className="text-slate-600 font-body text-sm leading-relaxed">
+              <p className="ds-proposito-texto text-slate-600 font-body text-sm leading-relaxed">
                 Ser conhecida nacional e internacionalmente como sólida,
                 confiável e comprometida com seus clientes, fornecedores e com
                 a responsabilidade socioambiental.
@@ -1137,11 +1137,11 @@ export default function Sobre() {
 
             {/* Valores */}
             <div
-              className="bg-white p-8 group relative overflow-hidden"
-              style={{ borderTop: "3px solid #df5342" }}
+              className="ds-proposito"
+              style={{ "--acento": "#df5342", "--acento-claro": "#ff8f7e" } as CSSProperties}
             >
               <div
-                className="w-10 h-10 rounded-lg flex items-center justify-center mb-5"
+                className="ds-proposito-icone w-10 h-10 rounded-lg flex items-center justify-center mb-5"
                 style={{ background: "rgba(223,83,66,0.09)", color: "#df5342" }}
               >
                 <svg
@@ -1158,7 +1158,7 @@ export default function Sobre() {
                 </svg>
               </div>
               <span
-                className="ds-label text-brand-orange"
+                className="ds-proposito-rotulo ds-label text-brand-orange"
                 style={{ display: "block", marginBottom: "0.75rem" }}
               >
                 Valores
@@ -1167,10 +1167,10 @@ export default function Sobre() {
                 {valores.map((v) => (
                   <li
                     key={v}
-                    className="flex items-start gap-2.5 text-slate-600 font-body text-sm"
+                    className="ds-proposito-texto flex items-start gap-2.5 text-slate-600 font-body text-sm"
                   >
                     <span
-                      className="flex-shrink-0 mt-0.5"
+                      className="ds-proposito-seta flex-shrink-0 mt-0.5"
                       style={{ color: "#df5342" }}
                     >
                       <svg

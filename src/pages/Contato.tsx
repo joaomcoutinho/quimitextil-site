@@ -4,6 +4,32 @@ import { empresa, whatsappLink } from "../data/empresa";
 import heroContato from "../assets/industrial_facility_office.jpg";
 import PageHeroShell from "../components/PageHeroShell";
 
+/**
+ * Mascara de telefone brasileiro. O digito seguinte ao DDD decide o formato:
+ * celular sempre comeca com 9, fixo nunca. Assim a mascara ja sai correta
+ * enquanto a pessoa digita, sem esperar o 11o digito para se acertar.
+ */
+function formatarTelefone(valor: string) {
+  const digitos = valor.replace(/\D/g, "").slice(0, 11);
+  if (!digitos) return "";
+  const ddd = digitos.slice(0, 2);
+  if (digitos.length <= 2) return `(${ddd}`;
+
+  const celular = digitos.startsWith("9", 2);
+  const assinante = digitos.slice(2, celular ? 11 : 10);
+
+  if (celular) {
+    if (assinante.length <= 1) return `(${ddd}) ${assinante}`;
+    if (assinante.length <= 5) return `(${ddd}) ${assinante[0]} ${assinante.slice(1)}`;
+    return `(${ddd}) ${assinante[0]} ${assinante.slice(1, 5)}-${assinante.slice(5)}`;
+  }
+  if (assinante.length <= 4) return `(${ddd}) ${assinante}`;
+  return `(${ddd}) ${assinante.slice(0, 4)}-${assinante.slice(4)}`;
+}
+
+/** Exige arroba e um dominio com ponto: o type="email" do navegador aceita "a@b". */
+const RE_EMAIL = /^[^\s@]+@[^\s@.]+(\.[^\s@.]+)+$/;
+
 export default function Contato() {
   const [nome, setNome] = useState("");
   const [empresaF, setEmpresaF] = useState("");
@@ -12,9 +38,20 @@ export default function Contato() {
   const [produto, setProduto] = useState("");
   const [detalhes, setDetalhes] = useState("");
   const [enviado, setEnviado] = useState(false);
+  const [tocado, setTocado] = useState({ telefone: false, email: false });
+
+  const digitosTelefone = telefone.replace(/\D/g, "");
+  const telefoneValido = digitosTelefone.length === 10 || digitosTelefone.length === 11;
+  const emailValido = email === "" || RE_EMAIL.test(email);
+  const erroTelefone = tocado.telefone && !telefoneValido;
+  const erroEmail = tocado.email && !emailValido;
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    if (!telefoneValido || !emailValido) {
+      setTocado({ telefone: true, email: true });
+      return;
+    }
     const msg = [
       `Olá! Vim pelo site da Quimitêxtil e gostaria de solicitar uma cotação.`,
       ``,
@@ -218,6 +255,7 @@ export default function Contato() {
                     <input
                       id="nome"
                       type="text"
+                      autoComplete="name"
                       required
                       value={nome}
                       onChange={(e) => setNome(e.target.value)}
@@ -232,6 +270,7 @@ export default function Contato() {
                     <input
                       id="empresa-f"
                       type="text"
+                      autoComplete="organization"
                       value={empresaF}
                       onChange={(e) => setEmpresaF(e.target.value)}
                       className="ds-field-input"
@@ -246,12 +285,22 @@ export default function Contato() {
                       <input
                         id="telefone"
                         type="tel"
+                        inputMode="tel"
+                        autoComplete="tel"
                         required
                         value={telefone}
-                        onChange={(e) => setTelefone(e.target.value)}
+                        onChange={(e) => setTelefone(formatarTelefone(e.target.value))}
+                        onBlur={() => setTocado((t) => ({ ...t, telefone: true }))}
+                        aria-invalid={erroTelefone}
+                        aria-describedby={erroTelefone ? "erro-telefone" : undefined}
                         className="ds-field-input"
-                        placeholder="(00) 0 0000-0000"
+                        placeholder="(81) 9 9999-9999"
                       />
+                      {erroTelefone && (
+                        <span className="ds-field-erro" id="erro-telefone">
+                          Informe DDD e número completo.
+                        </span>
+                      )}
                     </div>
                     <div>
                       <label className="ds-field-label" htmlFor="email">
@@ -260,11 +309,21 @@ export default function Contato() {
                       <input
                         id="email"
                         type="email"
+                        inputMode="email"
+                        autoComplete="email"
                         value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        onChange={(e) => setEmail(e.target.value.trim())}
+                        onBlur={() => setTocado((t) => ({ ...t, email: true }))}
+                        aria-invalid={erroEmail}
+                        aria-describedby={erroEmail ? "erro-email" : undefined}
                         className="ds-field-input"
                         placeholder="seu@email.com.br"
                       />
+                      {erroEmail && (
+                        <span className="ds-field-erro" id="erro-email">
+                          E-mail incompleto. Ex.: nome@empresa.com.br
+                        </span>
+                      )}
                     </div>
                   </div>
                   <div>

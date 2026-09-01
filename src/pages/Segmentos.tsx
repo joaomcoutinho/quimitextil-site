@@ -212,87 +212,72 @@ export default function Segmentos() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-4">
-            {gruposSetores.map((g) => (
+          {/* Registro por indústria, e não uma grade de cartões arredondados
+              com selo e checkmark: fileiras com filete e numeral, o mesmo
+              vocabulário das aplicações na ficha do produto. */}
+          <div className="ds-registro">
+            {gruposSetores.map((g, i) => (
               <div
                 key={g.id}
-                className="relative overflow-hidden rounded-xl"
-                style={{
-                  background: "rgba(255,255,255,0.04)",
-                  border: "1px solid rgba(255,255,255,0.1)",
-                  borderTop: `3px solid ${g.cor}`,
-                  padding: "1.75rem",
-                  transition: "background 0.25s, border-color 0.25s, transform 0.25s",
-                }}
-                onMouseEnter={(e) => {
-                  const el = e.currentTarget as HTMLDivElement;
-                  el.style.background = "rgba(255,255,255,0.07)";
-                  el.style.transform = "translateY(-4px)";
-                }}
-                onMouseLeave={(e) => {
-                  const el = e.currentTarget as HTMLDivElement;
-                  el.style.background = "rgba(255,255,255,0.04)";
-                  el.style.transform = "translateY(0)";
-                }}
+                className="ds-registro-linha grid gap-x-12 gap-y-5 md:grid-cols-[17rem_1fr]"
               >
-                {/* cabeçalho do grupo */}
-                <div className="flex items-start justify-between gap-4" style={{ marginBottom: "0.75rem" }}>
-                  <h3
-                    className="font-display font-bold text-white leading-tight"
-                    style={{ fontFamily: "'Oswald', sans-serif", fontSize: "1.35rem" }}
-                  >
-                    {g.nome}
-                  </h3>
+                {/* identificação do grupo */}
+                <div className="flex gap-4">
                   <span
-                    className="font-label font-bold uppercase tracking-widest flex-shrink-0 rounded-full"
+                    className="font-display font-bold leading-none flex-shrink-0"
                     style={{
-                      background: g.bg,
+                      fontFamily: "'Oswald', sans-serif",
+                      fontSize: "1.5rem",
                       color: g.cor,
-                      fontSize: "0.6rem",
-                      padding: "0.35rem 0.7rem",
-                      border: `1px solid ${g.cor}55`,
+                      paddingTop: "0.1rem",
                     }}
+                    aria-hidden="true"
                   >
-                    {g.setores.length} setores
+                    {String(i + 1).padStart(2, "0")}
                   </span>
-                </div>
-
-                <p
-                  className="text-white/45 font-body text-sm leading-relaxed"
-                  style={{ marginBottom: "1.25rem" }}
-                >
-                  {g.resumo}
-                </p>
-
-                {/* setores como chips */}
-                <div className="flex flex-wrap gap-2">
-                  {g.setores.map((setor) => (
-                    <span
-                      key={setor}
-                      className="inline-flex items-center gap-1.5 font-body rounded-md"
+                  <div className="min-w-0">
+                    <h3
+                      className="font-display font-bold text-white leading-tight"
+                      style={{ fontFamily: "'Oswald', sans-serif", fontSize: "1.25rem" }}
+                    >
+                      {g.nome}
+                    </h3>
+                    <p
+                      className="font-label uppercase"
                       style={{
-                        background: "rgba(255,255,255,0.06)",
-                        border: "1px solid rgba(255,255,255,0.1)",
-                        color: "rgba(255,255,255,0.85)",
-                        fontSize: "0.78rem",
-                        padding: "0.4rem 0.7rem",
+                        fontSize: "0.6rem",
+                        letterSpacing: "0.12em",
+                        color: g.cor,
+                        marginTop: "0.4rem",
                       }}
                     >
-                      <svg
-                        className="w-3 h-3 flex-shrink-0"
-                        style={{ color: g.cor }}
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={3}
-                        aria-hidden="true"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                      </svg>
-                      {setor}
-                    </span>
-                  ))}
+                      {g.setores.length} setores
+                    </p>
+                    <p
+                      className="text-white/40 font-body leading-relaxed"
+                      style={{ fontSize: "0.8rem", marginTop: "0.6rem" }}
+                    >
+                      {g.resumo}
+                    </p>
+                  </div>
                 </div>
+
+                {/* setores do grupo */}
+                <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-3 self-center">
+                  {g.setores.map((setor) => (
+                    <li
+                      key={setor}
+                      className="text-white/80 font-body leading-snug"
+                      style={{
+                        fontSize: "0.875rem",
+                        borderLeft: `1px solid ${g.cor}`,
+                        paddingLeft: "0.75rem",
+                      }}
+                    >
+                      {setor}
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>

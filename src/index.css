@@ -347,6 +347,86 @@ a { text-decoration: none; }
   background-size: 40px 40px;
 }
 
+/* ── Registro por indústria (página Segmentos) ──
+   Fileiras separadas por filete, no lugar de cartões arredondados. O realce
+   no hover é discreto e só existe onde há mouse. */
+.ds-registro { border-top: 1px solid rgba(255,255,255,0.12); }
+.ds-registro-linha {
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+  padding: 2rem 0;
+  transition: background 0.25s ease, padding-left 0.25s ease, padding-right 0.25s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .ds-registro-linha:hover {
+    background: rgba(255,255,255,0.03);
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
+
+/* ── Propósito (página Sobre) ──
+   O cartão inverte no hover: uma camada navy sobe de baixo e o texto vira
+   branco. Guardado atrás de (hover: hover): em tela de toque o :hover fica
+   preso depois do toque e o cartão continuaria invertido sem motivo. */
+.ds-proposito {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #fff;
+  padding: 32px;
+  border-top: 3px solid var(--acento);
+}
+.ds-proposito::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: #131b4a;
+  transform: scaleY(0);
+  transform-origin: bottom center;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.ds-proposito-icone,
+.ds-proposito-rotulo,
+.ds-proposito-texto,
+.ds-proposito-seta {
+  transition: color 0.35s ease, background-color 0.35s ease, transform 0.35s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .ds-proposito { transition: border-top-color 0.35s ease, box-shadow 0.35s ease; }
+  .ds-proposito:hover::before { transform: scaleY(1); }
+  .ds-proposito:hover {
+    border-top-color: var(--acento-claro);
+    box-shadow: 0 26px 50px -22px rgba(19, 27, 74, 0.55);
+  }
+  .ds-proposito:hover .ds-proposito-icone {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--acento-claro);
+    transform: translateY(-3px);
+  }
+  .ds-proposito:hover .ds-proposito-rotulo { color: var(--acento-claro); }
+  .ds-proposito:hover .ds-proposito-texto { color: rgba(255, 255, 255, 0.78); }
+  .ds-proposito:hover .ds-proposito-seta {
+    color: var(--acento-claro);
+    transform: translateX(3px);
+  }
+}
+
+/* ── Erro de validação nos campos ── */
+.ds-field-input[aria-invalid='true'] { border-color: #df5342; }
+.ds-field-input[aria-invalid='true']:focus {
+  border-color: #df5342;
+  box-shadow: 0 0 0 3px rgba(223, 83, 66, 0.12);
+}
+.ds-field-erro {
+  display: block;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: #c94432;
+  margin-top: 5px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }

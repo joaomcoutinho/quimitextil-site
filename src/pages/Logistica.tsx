@@ -1,4 +1,4 @@
-import { whatsappLink, cobertura, frota, licencas } from "../data/empresa";
+import { whatsappLink, cobertura, licencas } from "../data/empresa";
 import PageHeroShell from "../components/PageHeroShell";
 import mapa from "../assets/mapa-6-estados.png";
 
@@ -480,39 +480,6 @@ export default function Logistica() {
             pelo WhatsApp.
           </p>
 
-          {/* composição da frota */}
-          <div style={{ marginTop: "4rem" }}>
-            <div className="ds-eyebrow" style={{ marginBottom: "1.5rem" }}>
-              Composição da frota própria
-            </div>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-              {frota.map(({ qtd, tipo }) => (
-                <div
-                  key={tipo}
-                  className="text-center"
-                  style={{
-                    background: "rgba(255,255,255,0.04)",
-                    border: "1px solid rgba(255,255,255,0.1)",
-                    borderRadius: "10px",
-                    padding: "1.5rem 1rem",
-                  }}
-                >
-                  <p
-                    className="font-display font-bold text-brand-orange"
-                    style={{ fontFamily: "'Oswald', sans-serif", fontSize: "2.25rem", lineHeight: 1 }}
-                  >
-                    {qtd}
-                  </p>
-                  <p
-                    className="font-label text-white/50 uppercase leading-snug"
-                    style={{ fontSize: "0.6rem", letterSpacing: "0.1em", marginTop: "0.5rem" }}
-                  >
-                    {tipo}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 
