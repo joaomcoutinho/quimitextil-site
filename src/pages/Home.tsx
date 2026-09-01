@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { empresa, whatsappLink } from "../data/empresa";
-import { segmentos } from "../data/segmentos";
+import { segmentos, setoresAtendidos } from "../data/segmentos";
 import SegmentIcon from "../components/SegmentIcon";
 import heroAereaDesktop from "../assets/home-aerea-desktop.jpg";
 import heroAereaMobile from "../assets/home-aerea-mobile.jpg";
@@ -131,7 +131,7 @@ const faqs = [
   },
   {
     q: "Quais segmentos vocês atendem?",
-    a: `O catálogo é organizado em 8 segmentos: ${segmentos.map((s) => s.nome).join(", ")}. Na prática, a carteira alcança 16 setores industriais, de galvanização a carcinicultura.`,
+    a: `O catálogo é organizado em 8 segmentos: ${segmentos.map((s) => s.nome).join(", ")}. Na prática, a carteira alcança ${setoresAtendidos.length} setores industriais, de galvanização a carcinicultura.`,
   },
 ];
 

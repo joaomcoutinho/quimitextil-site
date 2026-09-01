@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { empresa, whatsappLink } from '../data/empresa'
-import { segmentos } from '../data/segmentos'
+import { segmentos, setoresAtendidos } from '../data/segmentos'
 import PageHeroShell from '../components/PageHeroShell'
 
 const categorias = [
@@ -63,7 +63,7 @@ const categorias = [
       },
       {
         q: 'Quais segmentos vocês atendem?',
-        a: `O catálogo é organizado em 8 segmentos: ${segmentos.map(s => s.nome).join(', ')}. Na prática, a carteira alcança 16 setores industriais, incluindo bebidas e sucos, laticínios, galvanização, usinas e destilarias, siderúrgicas, avicultura e carcinicultura.`,
+        a: `O catálogo é organizado em 8 segmentos: ${segmentos.map(s => s.nome).join(', ')}. Na prática, a carteira alcança ${setoresAtendidos.length} setores industriais, incluindo bebidas e sucos, laticínios, galvanização, usinas e destilarias, siderúrgicas, avicultura e carcinicultura.`,
       },
     ],
   },

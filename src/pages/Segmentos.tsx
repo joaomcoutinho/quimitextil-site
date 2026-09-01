@@ -228,7 +228,7 @@ export default function Segmentos() {
                     style={{
                       fontFamily: "'Oswald', sans-serif",
                       fontSize: "1.5rem",
-                      color: g.cor,
+                      color: g.corClara,
                       paddingTop: "0.1rem",
                     }}
                     aria-hidden="true"
@@ -247,7 +247,7 @@ export default function Segmentos() {
                       style={{
                         fontSize: "0.6rem",
                         letterSpacing: "0.12em",
-                        color: g.cor,
+                        color: g.corClara,
                         marginTop: "0.4rem",
                       }}
                     >
@@ -270,7 +270,7 @@ export default function Segmentos() {
                       className="text-white/80 font-body leading-snug"
                       style={{
                         fontSize: "0.875rem",
-                        borderLeft: `1px solid ${g.cor}`,
+                        borderLeft: `2px solid ${g.corClara}`,
                         paddingLeft: "0.75rem",
                       }}
                     >

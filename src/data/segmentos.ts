@@ -76,6 +76,8 @@ export interface GrupoSetor {
   nome: string
   resumo: string
   cor: string
+  /** Variante clara da cor, para uso sobre o fundo navy */
+  corClara: string
   bg: string
   setores: string[]
 }
@@ -86,6 +88,7 @@ export const gruposSetores: GrupoSetor[] = [
     nome: 'Transformação e manufatura',
     resumo: 'Onde a Quimitêxtil nasceu e onde conhecemos cada etapa do processo.',
     cor: '#2F3B92',
+    corClara: '#8f9bf0',
     bg: 'rgba(47,59,146,0.09)',
     setores: [
       'Indústria Têxtil',
@@ -101,6 +104,7 @@ export const gruposSetores: GrupoSetor[] = [
     nome: 'Alimentos e bebidas',
     resumo: 'Insumos em grau alimentício, com rastreabilidade e conformidade sanitária.',
     cor: '#059669',
+    corClara: '#34d399',
     bg: 'rgba(5,150,105,0.09)',
     setores: [
       'Indústria Alimentícia',
@@ -114,6 +118,7 @@ export const gruposSetores: GrupoSetor[] = [
     nome: 'Saúde, higiene e limpeza',
     resumo: 'Insumos USP de alta pureza e a base química de saneantes profissionais.',
     cor: '#df5342',
+    corClara: '#ff8f7e',
     bg: 'rgba(223,83,66,0.09)',
     setores: ['Indústrias Farmacêuticas', 'Indústrias de Domissanitários'],
   },
@@ -122,6 +127,7 @@ export const gruposSetores: GrupoSetor[] = [
     nome: 'Agro e produção animal',
     resumo: 'Nutrição vegetal e animal, com logística que chega fora dos grandes centros.',
     cor: '#d97706',
+    corClara: '#fbbf24',
     bg: 'rgba(217,119,6,0.09)',
     setores: ['Agricultura', 'Pecuária', 'Avicultura', 'Carcinicultura'],
   },
