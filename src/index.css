@@ -50,6 +50,12 @@ body {
 #root {
   background-color: #F4F5F9;
 }
+/* ATENÇÃO: estas duas regras não estão em @layer, e estilo sem camada vence
+   qualquer camada — inclusive as utilities do Tailwind. Na prática, mb-*,
+   mt-* e my-* NÃO funcionam em h1..h5 nem em p neste projeto: a margem
+   precisa ir por style inline, que é o padrão adotado nas páginas.
+   Trocar isto por @layer base resolveria de vez, mas mexeria no espaçamento
+   de todas as páginas de uma vez, então fica registrado aqui. */
 h1, h2, h3, h4, h5 {
   font-family: 'Oswald', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   margin: 0;

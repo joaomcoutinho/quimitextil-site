@@ -1011,10 +1011,11 @@ export default function Home() {
             </div>
 
             <h2
-              className="text-white font-display font-bold mb-8 leading-tight"
+              className="text-white font-display font-bold leading-tight"
               style={{
                 fontSize: "clamp(2rem, 4vw, 3rem)",
                 fontFamily: "'Oswald', sans-serif",
+                marginBottom: "2rem",
               }}
             >
               Frota estruturada.
@@ -1024,7 +1025,10 @@ export default function Home() {
               <span className="text-brand-orange">Risco menor.</span>
             </h2>
 
-            <p className="text-white/60 font-body text-base leading-relaxed mb-10 max-w-md">
+            <p
+              className="text-white/60 font-body text-base leading-relaxed max-w-md"
+              style={{ marginBottom: "2.5rem" }}
+            >
               Em distribuição química industrial, o prazo se perde quando
               ninguém responde pela carga. Aqui cada entrega tem um
               responsável: motoristas com certificação MOPP documentada e
@@ -1067,10 +1071,11 @@ export default function Home() {
           </div>
 
           <h2
-            className="text-white font-display font-bold mb-8 leading-tight"
+            className="text-white font-display font-bold leading-tight"
             style={{
               fontSize: "clamp(2rem, 8vw, 3rem)",
               fontFamily: "'Oswald', sans-serif",
+              marginBottom: "2rem",
             }}
           >
             Frota estruturada.
@@ -1095,7 +1100,10 @@ export default function Home() {
             />
           </div>
 
-          <p className="text-white/60 font-body text-base leading-relaxed mb-10">
+          <p
+            className="text-white/60 font-body text-base leading-relaxed"
+            style={{ marginBottom: "2.5rem" }}
+          >
             Em distribuição química industrial, o prazo se perde quando ninguém
             responde pela carga. Aqui cada entrega tem um responsável:
             motoristas com certificação MOPP documentada e transportadores
