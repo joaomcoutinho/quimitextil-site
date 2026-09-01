@@ -131,7 +131,7 @@ const faqs = [
   },
   {
     q: "Quais segmentos vocês atendem?",
-    a: `O catálogo é organizado em 8 segmentos: ${segmentos.map((s) => s.nome).join(", ")}. Na prática, a carteira alcança ${setoresAtendidos.length} setores industriais, de galvanização a carcinicultura.`,
+    a: `O catálogo é organizado em ${segmentos.length} segmentos: ${segmentos.map((s) => s.nome).join(", ")}. Na prática, a carteira alcança ${setoresAtendidos.length} setores industriais, de galvanização a carcinicultura.`,
   },
 ];
 

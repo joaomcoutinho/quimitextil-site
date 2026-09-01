@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { empresa, whatsappLink } from '../data/empresa'
 import { segmentos, setoresAtendidos } from '../data/segmentos'
+import { produtos, distribuicoes } from '../data/produtos'
 import PageHeroShell from '../components/PageHeroShell'
 
 const categorias = [
@@ -9,7 +10,7 @@ const categorias = [
     items: [
       {
         q: 'Quais produtos químicos vocês fornecem?',
-        a: 'Trabalhamos com 56 insumos químicos (ácidos, bases, sais, oxidantes, redutores, surfactantes, corantes e outros) para 8 segmentos industriais. Distribuímos ainda marcas como Esseco, Lonza, Saporiti, Peroxy Bahia, Ciemil e EPA. Acesse o catálogo completo para ver todos os produtos disponíveis.',
+        a: `Trabalhamos com ${produtos.length} insumos químicos (ácidos, bases, sais, oxidantes, redutores, surfactantes, corantes e outros) para ${segmentos.length} segmentos industriais. Distribuímos ainda marcas como ${distribuicoes.map(d => d.marca).join(', ')}. Acesse o catálogo completo para ver todos os produtos disponíveis.`,
       },
       {
         q: 'Posso solicitar a FISPQ de um produto antes de comprar?',
@@ -63,7 +64,7 @@ const categorias = [
       },
       {
         q: 'Quais segmentos vocês atendem?',
-        a: `O catálogo é organizado em 8 segmentos: ${segmentos.map(s => s.nome).join(', ')}. Na prática, a carteira alcança ${setoresAtendidos.length} setores industriais, incluindo bebidas e sucos, laticínios, galvanização, usinas e destilarias, siderúrgicas, avicultura e carcinicultura.`,
+        a: `O catálogo é organizado em ${segmentos.length} segmentos: ${segmentos.map(s => s.nome).join(', ')}. Na prática, a carteira alcança ${setoresAtendidos.length} setores industriais, incluindo bebidas e sucos, laticínios, galvanização, usinas e destilarias, siderúrgicas, avicultura e carcinicultura.`,
       },
     ],
   },

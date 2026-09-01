@@ -370,6 +370,13 @@ a { text-decoration: none; }
   }
 }
 
+/* Setor que leva ao segmento correspondente. O filete engrossa e o texto
+   clareia no hover, sem mudar a largura da linha. */
+.ds-setor-link { transition: color 0.2s ease, border-left-color 0.2s ease; }
+@media (hover: hover) and (pointer: fine) {
+  .ds-setor-link:hover { color: #fff; }
+}
+
 /* ── Propósito (página Sobre) ──
    O cartão inverte no hover: uma camada navy sobe de baixo e o texto vira
    branco. Guardado atrás de (hover: hover): em tela de toque o :hover fica

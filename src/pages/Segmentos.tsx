@@ -263,20 +263,38 @@ export default function Segmentos() {
                 </div>
 
                 {/* setores do grupo */}
+                {/* Onde o setor tem segmento correspondente no catálogo, vira
+                    link. Os que ficam em texto puro são atendidos sob consulta:
+                    o catálogo é organizado por tipo de insumo, não por indústria. */}
                 <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-3 self-center">
-                  {g.setores.map((setor) => (
-                    <li
-                      key={setor}
-                      className="text-white/80 font-body leading-snug"
-                      style={{
-                        fontSize: "0.875rem",
-                        borderLeft: `2px solid ${g.corClara}`,
-                        paddingLeft: "0.75rem",
-                      }}
-                    >
-                      {setor}
-                    </li>
-                  ))}
+                  {g.setores.map((setor) => {
+                    const estilo = {
+                      fontSize: "0.875rem",
+                      borderLeft: `2px solid ${g.corClara}`,
+                      paddingLeft: "0.75rem",
+                    };
+                    return (
+                      <li key={setor.nome} className="leading-snug">
+                        {setor.segmento ? (
+                          <Link
+                            to={`/segmentos/${setor.segmento}`}
+                            className="ds-setor-link block text-white/80 font-body"
+                            style={estilo}
+                          >
+                            {setor.nome}
+                          </Link>
+                        ) : (
+                          <span
+                            className="block text-white/80 font-body"
+                            style={estilo}
+                            title="Atendido sob consulta"
+                          >
+                            {setor.nome}
+                          </span>
+                        )}
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             ))}
@@ -286,8 +304,9 @@ export default function Segmentos() {
             className="text-white/40 font-body text-xs text-center"
             style={{ marginTop: "2rem" }}
           >
-            Não encontrou o seu setor? Fale com nosso comercial: atendemos
-            demandas específicas caso a caso.
+            Setores sem link são atendidos sob consulta, por não terem vitrine
+            própria no catálogo. Não encontrou o seu? Fale com nosso comercial:
+            atendemos demandas específicas caso a caso.
           </p>
         </div>
       </section>

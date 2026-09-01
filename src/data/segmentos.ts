@@ -71,6 +71,16 @@ export const segmentos: Segmento[] = [
  * institucional da empresa. Os oito segmentos acima organizam o catálogo;
  * esta lista mostra a amplitude real da carteira.
  */
+export interface SetorAtendido {
+  nome: string
+  /**
+   * Segmento do catálogo que atende este setor. Fica indefinido nos setores
+   * que a empresa atende mas que não têm vitrine própria no catálogo, porque
+   * o catálogo é organizado por tipo de insumo, não por indústria.
+   */
+  segmento?: SegmentoSlug
+}
+
 export interface GrupoSetor {
   id: string
   nome: string
@@ -79,7 +89,7 @@ export interface GrupoSetor {
   /** Variante clara da cor, para uso sobre o fundo navy */
   corClara: string
   bg: string
-  setores: string[]
+  setores: SetorAtendido[]
 }
 
 export const gruposSetores: GrupoSetor[] = [
@@ -91,12 +101,12 @@ export const gruposSetores: GrupoSetor[] = [
     corClara: '#8f9bf0',
     bg: 'rgba(47,59,146,0.09)',
     setores: [
-      'Indústria Têxtil',
-      'Indústria de Papel',
-      'Indústria Química',
-      'Curtume',
-      'Indústria de Galvanização',
-      'Siderúrgicas e Fundições',
+      { nome: 'Indústria Têxtil', segmento: 'textil' },
+      { nome: 'Indústria de Papel', segmento: 'papel-celulose' },
+      { nome: 'Indústria Química' },
+      { nome: 'Curtume', segmento: 'curtume' },
+      { nome: 'Indústria de Galvanização' },
+      { nome: 'Siderúrgicas e Fundições' },
     ],
   },
   {
@@ -107,10 +117,10 @@ export const gruposSetores: GrupoSetor[] = [
     corClara: '#34d399',
     bg: 'rgba(5,150,105,0.09)',
     setores: [
-      'Indústria Alimentícia',
-      'Indústrias de Bebidas e Sucos',
-      'Indústrias de Laticínios',
-      'Usinas e Destilarias',
+      { nome: 'Indústria Alimentícia', segmento: 'alimenticio' },
+      { nome: 'Indústrias de Bebidas e Sucos', segmento: 'alimenticio' },
+      { nome: 'Indústrias de Laticínios', segmento: 'alimenticio' },
+      { nome: 'Usinas e Destilarias' },
     ],
   },
   {
@@ -120,7 +130,10 @@ export const gruposSetores: GrupoSetor[] = [
     cor: '#df5342',
     corClara: '#ff8f7e',
     bg: 'rgba(223,83,66,0.09)',
-    setores: ['Indústrias Farmacêuticas', 'Indústrias de Domissanitários'],
+    setores: [
+      { nome: 'Indústrias Farmacêuticas', segmento: 'cosmeticos-farmaceutico' },
+      { nome: 'Indústrias de Domissanitários', segmento: 'saneantes' },
+    ],
   },
   {
     id: 'agro',
@@ -129,12 +142,17 @@ export const gruposSetores: GrupoSetor[] = [
     cor: '#d97706',
     corClara: '#fbbf24',
     bg: 'rgba(217,119,6,0.09)',
-    setores: ['Agricultura', 'Pecuária', 'Avicultura', 'Carcinicultura'],
+    setores: [
+      { nome: 'Agricultura', segmento: 'agropecuario' },
+      { nome: 'Pecuária', segmento: 'agropecuario' },
+      { nome: 'Avicultura', segmento: 'agropecuario' },
+      { nome: 'Carcinicultura', segmento: 'agropecuario' },
+    ],
   },
 ]
 
 /** Lista plana dos setores, derivada dos grupos acima. */
-export const setoresAtendidos: string[] = gruposSetores.flatMap(g => g.setores)
+export const setoresAtendidos: SetorAtendido[] = gruposSetores.flatMap(g => g.setores)
 
 export function getSegmento(slug: string): Segmento | undefined {
   return segmentos.find(s => s.slug === slug)
