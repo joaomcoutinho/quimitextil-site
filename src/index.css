@@ -386,6 +386,10 @@ a { text-decoration: none; }
   transform-origin: bottom center;
   transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 }
+/* O rótulo segue o acento do próprio cartão. Sem isso, .ds-label (mesma
+   especificidade, declarada depois) vencia o text-brand-orange do JSX e os
+   três rótulos saíam azuis, brigando com o filete laranja de dois deles. */
+.ds-proposito-rotulo { color: var(--acento); }
 .ds-proposito-icone,
 .ds-proposito-rotulo,
 .ds-proposito-texto,

@@ -1088,7 +1088,7 @@ export default function Sobre() {
                 </svg>
               </div>
               <span
-                className="ds-proposito-rotulo ds-label text-brand-orange"
+                className="ds-proposito-rotulo ds-label"
                 style={{ display: "block", marginBottom: "0.75rem" }}
               >
                 Missão
@@ -1123,7 +1123,7 @@ export default function Sobre() {
                 </svg>
               </div>
               <span
-                className="ds-proposito-rotulo ds-label text-brand-blue"
+                className="ds-proposito-rotulo ds-label"
                 style={{ display: "block", marginBottom: "0.75rem" }}
               >
                 Visão
@@ -1158,7 +1158,7 @@ export default function Sobre() {
                 </svg>
               </div>
               <span
-                className="ds-proposito-rotulo ds-label text-brand-orange"
+                className="ds-proposito-rotulo ds-label"
                 style={{ display: "block", marginBottom: "0.75rem" }}
               >
                 Valores
