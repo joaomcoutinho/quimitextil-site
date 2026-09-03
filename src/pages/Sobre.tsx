@@ -786,15 +786,11 @@ export default function Sobre() {
               className="text-white font-display font-bold"
               style={{ marginTop: "1.5rem", marginBottom: "1.75rem" }}
             >
-              {/* O número vem antes da frase e domina o bloco: é ele que
-                  entrega a autoridade no primeiro olhar. */}
+              {/* Uma frase só, em duas linhas: o número ancora o olhar e
+                  "anos" já devolve a leitura ao corpo da sentença. */}
               <span className="ds-hero-marco">
                 <span className="ds-hero-marco-num">{empresa.anosHistoria}</span>
-                <span className="ds-hero-marco-lado">
-                  <span className="ds-hero-marco-fio" aria-hidden="true" />
-                  <span className="ds-hero-marco-anos">Anos</span>
-                  <span className="ds-hero-marco-sub">Autoridade no setor químico</span>
-                </span>
+                <span className="ds-hero-marco-anos">anos</span>
               </span>
               <span className="ds-hero-frase">
                 abastecendo quem produz no Nordeste.
