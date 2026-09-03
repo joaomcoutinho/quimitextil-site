@@ -3,6 +3,9 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: ["main"]
+  # Permite disparar o deploy pela aba Actions, sem precisar de um commit novo.
+  # Util quando o Pages e reativado e a ultima execucao ficou para tras.
+  workflow_dispatch:
 
 permissions:
   contents: read
