@@ -26,12 +26,12 @@
 * { box-sizing: border-box; }
 html {
   overflow-x: hidden;
-  /* Impede o efeito elástico ao passar do topo ou do fim da página.
-     Fica só aqui: no body, ele transformava o body num contêiner de
-     rolagem sem overflow próprio e impedia a roda do mouse de chegar
-     ao html, travando o scroll da página inteira. */
-  overscroll-behavior-y: none;
-  /* Cor exibida caso o navegador ainda estique a rolagem: mesma do header e do rodapé */
+  /* A área que aparece ao esticar a rolagem além do topo ou do fim é pintada
+     com o fundo do html. Como header e rodapé são os dois #131b4a, a esticada
+     lê como continuação do site em qualquer das duas pontas — e não como a
+     borda branca do navegador, que era o problema original.
+     NÃO usar overscroll-behavior aqui: bloquear a esticada também mata o
+     puxar-para-recarregar do celular. A cor sozinha resolve. */
   background-color: #131b4a;
 }
 body {
