@@ -7,6 +7,7 @@ import SegmentIcon from '../components/SegmentIcon'
 import logoQuimitextil from '../assets/logo_quimitextil-removebg-preview.png'
 import NaoEncontrado from './NaoEncontrado'
 
+import bgAcidos from '../assets/produto-acidos.jpg'
 import bgBases from '../assets/produto-bases.jpg'
 import bgSais from '../assets/produto-sais.jpg'
 import bgSurfactantes from '../assets/produto-surfactantes.jpg'
@@ -15,13 +16,9 @@ import bgRedutores from '../assets/produto-redutores.jpg'
 import bgCorantes from '../assets/produto-corantes.jpg'
 import bgOutros from '../assets/produto-outros.jpg'
 
-/**
- * Fundo do hero por categoria de produto.
- * TODO: 'acidos' usa o fundo grafite provisoriamente, até chegar a
- * imagem em burnt sienna (#8A3B22) da categoria.
- */
+/** Fundo do hero por categoria: cada cena tem a luz de recorte na cor da categoria. */
 const bgPorCategoria: Record<CategoriaProduto, string> = {
-  acidos: bgOutros,
+  acidos: bgAcidos,
   bases: bgBases,
   sais: bgSais,
   surfactantes: bgSurfactantes,
