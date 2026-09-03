@@ -784,20 +784,21 @@ export default function Sobre() {
           <div className="max-w-3xl">
             <h1
               className="text-white font-display font-bold"
-              style={{
-                fontFamily: "'Oswald', sans-serif",
-                fontSize: "clamp(2.9rem, 9vw, 4.75rem)",
-                lineHeight: 0.92,
-                letterSpacing: "-0.02em",
-                marginTop: "1.5rem",
-                marginBottom: "1.75rem",
-              }}
+              style={{ marginTop: "1.5rem", marginBottom: "1.75rem" }}
             >
-              50 anos
-              <br />
-              <span style={{ color: "#df5342" }}>abastecendo quem</span>
-              <br />
-              produz no Nordeste.
+              {/* O número vem antes da frase e domina o bloco: é ele que
+                  entrega a autoridade no primeiro olhar. */}
+              <span className="ds-hero-marco">
+                <span className="ds-hero-marco-num">{empresa.anosHistoria}</span>
+                <span className="ds-hero-marco-lado">
+                  <span className="ds-hero-marco-fio" aria-hidden="true" />
+                  <span className="ds-hero-marco-anos">Anos</span>
+                  <span className="ds-hero-marco-sub">Autoridade no setor químico</span>
+                </span>
+              </span>
+              <span className="ds-hero-frase">
+                abastecendo quem produz no Nordeste.
+              </span>
             </h1>
             <p
               className="text-white/60 font-body text-base leading-relaxed max-w-lg"
