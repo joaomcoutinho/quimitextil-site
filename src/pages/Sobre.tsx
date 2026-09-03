@@ -786,9 +786,9 @@ export default function Sobre() {
               className="text-white font-display font-bold"
               style={{
                 fontFamily: "'Oswald', sans-serif",
-                fontSize: "clamp(2.25rem, 5.5vw, 4rem)",
-                lineHeight: 0.95,
-                letterSpacing: "-0.01em",
+                fontSize: "clamp(2.9rem, 9vw, 4.75rem)",
+                lineHeight: 0.92,
+                letterSpacing: "-0.02em",
                 marginTop: "1.5rem",
                 marginBottom: "1.75rem",
               }}
@@ -861,25 +861,7 @@ export default function Sobre() {
                 key={stat.label}
                 className="bg-white px-8 py-10 relative group overflow-hidden"
               >
-                <div
-                  className="absolute top-0 left-0 right-0 h-0.5 bg-brand-orange origin-left"
-                  style={{
-                    transform: "scaleX(0)",
-                    transition: "transform 0.3s ease",
-                  }}
-                  ref={(el) => {
-                    if (el) {
-                      const parent = el.closest(".group") as HTMLElement | null;
-                      parent?.addEventListener("mouseenter", () => {
-                        el.style.transform = "scaleX(1)";
-                      });
-                      parent?.addEventListener("mouseleave", () => {
-                        el.style.transform = "scaleX(0)";
-                      });
-                    }
-                  }}
-                  aria-hidden="true"
-                />
+                <div className="ds-stat-fio" aria-hidden="true" />
                 <div
                   className="font-display font-bold text-[#131b4a]"
                   style={{
@@ -924,25 +906,18 @@ export default function Sobre() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-6">
           <div className="flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-16">
-            <div className="flex-shrink-0">
-              <div
-                className="font-display font-bold text-brand-orange leading-none"
-                style={{ fontFamily: "'Oswald', sans-serif", fontSize: "clamp(4.5rem, 12vw, 8rem)" }}
-              >
-                {empresa.anosHistoria}
-              </div>
-              <div
-                className="font-label font-bold uppercase text-white/50"
-                style={{ fontSize: "0.8rem", letterSpacing: "0.2em", marginTop: "0.25rem" }}
-              >
-                anos de história
+            {/* Faixa: o número e a autoridade no mesmo bloco. O badge que ficava
+                abaixo repetia essas duas informações e saiu. */}
+            <div className="ds-faixa-50 flex-shrink-0">
+              <span className="ds-faixa-50-num">{empresa.anosHistoria}</span>
+              <span className="ds-faixa-50-fio" aria-hidden="true" />
+              <div className="min-w-0">
+                <p className="ds-faixa-50-titulo">Anos de história</p>
+                <p className="ds-faixa-50-sub">Autoridade no mercado químico</p>
               </div>
             </div>
 
             <div className="max-w-xl">
-              <div className="ds-eyebrow" style={{ marginBottom: "1.25rem" }}>
-                50 anos de história · Autoridade no mercado químico
-              </div>
               <h2
                 className="text-white font-display font-bold"
                 style={{

@@ -352,20 +352,7 @@ export default function Esg() {
 
           <div className="grid md:grid-cols-2 gap-px bg-slate-200">
             {referencias.map((ref) => (
-              <div key={ref.nome} className="bg-white p-8 group relative overflow-hidden" style={{ transition: 'box-shadow 0.25s, transform 0.25s' }}
-                onMouseEnter={(e) => {
-                  const el = e.currentTarget as HTMLDivElement
-                  el.style.boxShadow = '0 12px 32px rgba(47,59,146,0.10)'
-                  el.style.transform = 'translateY(-3px)'
-                  el.style.zIndex = '2'
-                }}
-                onMouseLeave={(e) => {
-                  const el = e.currentTarget as HTMLDivElement
-                  el.style.boxShadow = ''
-                  el.style.transform = ''
-                  el.style.zIndex = ''
-                }}
-              >
+              <div key={ref.nome} className="ds-ref-card bg-white p-8 group relative overflow-hidden">
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4 mb-3">
                   <h3
                     className="font-display font-bold text-[#131b4a] min-w-0"

@@ -444,6 +444,116 @@ a { text-decoration: none; }
   margin-top: 5px;
 }
 
+
+/* ── Botão flutuante do WhatsApp ──
+   Duas ondas defasadas em meio ciclo, para nunca existir um quadro sem onda:
+   o pulso sai do centro e se expande de forma contínua. */
+.ds-whats-onda {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: #25d366;
+  opacity: 0;
+  pointer-events: none;
+  transform-origin: center;
+  animation: ds-onda 2.6s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+.ds-whats-onda.atrasada { animation-delay: 1.3s; }
+@keyframes ds-onda {
+  0%   { transform: scale(1);    opacity: 0.42; }
+  70%  { transform: scale(2.05); opacity: 0; }
+  100% { transform: scale(2.05); opacity: 0; }
+}
+/* O realce de hover só onde há mouse: no toque ele fica preso depois do tap. */
+.ds-whats { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+@media (hover: hover) and (pointer: fine) {
+  .ds-whats:hover { transform: translateY(-2px) scale(1.05); }
+}
+
+/* ── Cartões de licenças e programas (página ESG) ──
+   Elevação apenas no desktop. No celular o :hover fica preso depois do toque
+   e o cartão ficava travado levantado. */
+.ds-ref-card { transition: box-shadow 0.25s ease, transform 0.25s ease; }
+@media (hover: hover) and (pointer: fine) {
+  .ds-ref-card:hover {
+    box-shadow: 0 12px 32px rgba(47, 59, 146, 0.1);
+    transform: translateY(-3px);
+    z-index: 2;
+  }
+}
+
+/* Filete no topo do cartão de número (página Sobre). Era montado com
+   addEventListener dentro de um ref, que reinscrevia a cada render sem nunca
+   remover, e no toque ficava preso aceso. */
+.ds-stat-fio {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #df5342;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .group:hover > .ds-stat-fio { transform: scaleX(1); }
+}
+
+/* ── Faixa dos 50 anos (página Sobre) ── */
+.ds-faixa-50 {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: 14px;
+  background: linear-gradient(100deg, rgba(223, 83, 66, 0.16), rgba(223, 83, 66, 0.04));
+  border: 1px solid rgba(223, 83, 66, 0.28);
+  border-left: 4px solid #df5342;
+}
+.ds-faixa-50-num {
+  font-family: 'Oswald', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  color: #df5342;
+  font-size: clamp(3.5rem, 16vw, 5.5rem);
+  line-height: 0.85;
+  letter-spacing: -0.02em;
+  flex-shrink: 0;
+}
+.ds-faixa-50-fio {
+  width: 1px;
+  align-self: stretch;
+  background: rgba(223, 83, 66, 0.35);
+  flex-shrink: 0;
+}
+.ds-faixa-50-titulo {
+  font-family: 'Oswald', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  color: #fff;
+  font-size: clamp(1.05rem, 4.5vw, 1.35rem);
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+.ds-faixa-50-sub {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: rgba(255, 255, 255, 0.55);
+  margin-top: 0.45rem;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  *, ::before, ::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  /* animation-iteration-count é obrigatório aqui: sem ele, uma animação
+     infinita não para, apenas passa a durar 0.01ms e repetir para sempre,
+     virando um estrobo. Era o que fazia o botão do WhatsApp piscar em vez
+     de pulsar em aparelhos com "reduzir movimento" ligado. */
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
