@@ -357,30 +357,36 @@ export default function Logistica() {
           </div>
 
           {/* mapa em destaque */}
-          <div className="relative mx-auto" style={{ maxWidth: "520px", marginBottom: "4rem" }}>
-            {/* Painel claro: o corpo do mapa é navy e sumiria contra o fundo
-                escuro da seção. Sobre o cinza-claro, o Brasil lê nítido e os
-                seis estados em laranja saltam. */}
-            <div
-              className="relative overflow-hidden rounded-2xl"
-              style={{
-                background: "#F4F5F9",
-                border: "1px solid rgba(255,255,255,0.12)",
-                boxShadow: "0 24px 60px rgba(0,0,0,0.4)",
-                padding: "1.5rem",
-              }}
-            >
+          <div className="relative mx-auto" style={{ maxWidth: "640px", marginBottom: "4rem" }}>
+            {/* Sem painel: o mapa é desenhado para fundo escuro, com contorno
+                claro e brilho quente. Sobre o cinza-claro que havia aqui antes,
+                o contorno do país sumia e o brilho virava mancha. */}
+            <div className="relative">
+              {/* halo atrás da região atendida, para assentar o mapa no fundo */}
+              <div
+                className="absolute pointer-events-none"
+                style={{
+                  top: "18%",
+                  right: "2%",
+                  width: "46%",
+                  height: "42%",
+                  background: "radial-gradient(circle, rgba(223,83,66,0.22) 0%, transparent 70%)",
+                  filter: "blur(28px)",
+                }}
+                aria-hidden="true"
+              />
               <img
                 src={mapa}
-                alt="Mapa do Brasil com Pernambuco, Alagoas, Sergipe, Paraíba, Rio Grande do Norte e Ceará destacados como a área atendida pela Quimitêxtil"
+                alt="Mapa do Brasil com Pernambuco, Alagoas, Sergipe, Paraíba, Rio Grande do Norte e Ceará destacados como a área atendida pela Quimitêxtil, e o centro de distribuição marcado em Vitória de Santo Antão"
+                className="relative"
                 style={{ width: "100%", height: "auto", display: "block" }}
               />
             </div>
             <div
               className="absolute flex items-center gap-2 bg-brand-orange text-white rounded-full"
               style={{
-                top: "-14px",
-                right: "-14px",
+                top: "14%",
+                right: "-6px",
                 padding: "0.6rem 1.1rem",
                 boxShadow: "0 10px 30px rgba(223,83,66,0.45)",
               }}
