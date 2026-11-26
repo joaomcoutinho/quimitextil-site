@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Redirecionar a cópia do GitHub Pages para quimitextil.com.br
 
 on:
   push:
@@ -19,24 +19,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build
-        run: npm run build
-
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
         with:
-          # Se o seu build gera a pasta 'dist', mantenha dist. 
-          # Se gerar 'build', troque para build.
-          path: './dist'
+          # Desde 26/11/2026 esta cópia só redireciona para https://quimitextil.com.br
+          # (o site no ar fica na Hostinger). Nada do site é publicado aqui.
+          path: './redirect-pages'
 
   deploy:
     needs: build_site
